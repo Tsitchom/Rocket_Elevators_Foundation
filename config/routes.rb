@@ -37,6 +37,8 @@ Rails.application.routes.draw do
   get 'dropbox/auth' => 'dropbox#auth'
   get 'dropbox/auth_callback' => 'dropbox#auth_callback'
   get 'dropbox' => 'dropbox#index'
+  get '/mapsAPI', to: 'pages#mapsAPI'
+  get '/emp-dashboard/geolocation', to: 'pages#mapsAPI' 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'pages#index'
 
