@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2019_03_25_165821) do
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "address_type", null: false
     t.string "status"
-    t.string "entity", null: false
+    t.string "entity"
     t.string "number_street", null: false
     t.string "apt_number"
     t.string "city", null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_03_25_165821) do
     t.bigint "user_id"
     t.string "building_type", null: false
     t.string "status"
-    t.date "date_of_instal"
+    t.date "date_of_install"
     t.date "date_of_inspect"
     t.integer "inspect_certificate"
     t.text "information"
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 2019_03_25_165821) do
 
   create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "building_id", null: false
-    t.string "info_key"
-    t.string "value"
+    t.string "information"
+    t.string "valeur"
     t.index ["building_id"], name: "index_building_details_on_building_id"
   end
 
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2019_03_25_165821) do
     t.string "model_type", null: false
     t.string "building_type", null: false
     t.string "status"
-    t.date "date_of_instal"
+    t.date "date_of_install"
     t.date "date_of_inspect"
     t.string "inspect_certificate"
     t.text "information"
@@ -150,13 +150,11 @@ ActiveRecord::Schema.define(version: 2019_03_25_165821) do
     t.string "last_name"
     t.string "title"
     t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "encrypted_password", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["first_name"], name: "index_users_on_first_name"
+    t.index ["last_name"], name: "index_users_on_last_name"
+    t.index ["title"], name: "index_users_on_title"
   end
 
   add_foreign_key "batteries", "buildings", on_update: :cascade, on_delete: :cascade

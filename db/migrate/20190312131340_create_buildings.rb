@@ -1,8 +1,8 @@
 class CreateBuildings < ActiveRecord::Migration[5.2]
   def change
     create_table :buildings do |t|
-      t.references :address, foreign_key: {on_delete: :cascade, on_update: :cascade}, null: false
-      t.references :customer, foreign_key: {on_delete: :cascade, on_update: :cascade}, null: false
+      t.belongs_to :address, index: true, foreign_key: {on_delete: :cascade, on_update: :cascade}, null: false
+      t.belongs_to :customer, index: true, foreign_key: {on_delete: :cascade, on_update: :cascade}, null: false
       t.string :full_name_admin_person
       t.string :email_admin_person
       t.string :phone_number_admin_person
