@@ -1,0 +1,8 @@
+id,first_name,last_name,title,email,encrypted_password
+1,Philippe,Bouillon,Comm Rep,philippe.bouillon@codeboxx.biz,123456789
+2,Mathieu,LeFrançois,Engineer,mathieu.lefrançois@codeboxx.biz,123456789
+3,Mathieu,Houde,Engineer,mathieu.houde@codeboxx.biz,123456789
+4,Remi,Gagnon,Engineer,remi.gagnon@codeboxx.biz,123456789
+5,Serge,Savoie,Engineer,serge.savoie@codeboxx.biz,123456789
+6,Felix-Antoine,Paradis,Engineer,felix-antoine.paradis@codeboxx.biz,123456789
+7,Nadya,Fortier,Director,nadya.fortier@codeboxx.biz,123456789

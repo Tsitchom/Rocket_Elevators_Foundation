@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   get '/work11', to: 'pages#work11'
   get '/work12', to: 'pages#work12'
   get '/stats', to: 'stats#stats'
+  get '/mapsAPI', to: 'pages#mapsAPI'
+  get '/emp-dashboard/geolocation', to: 'pages#mapsAPI' 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'pages#index'
 end
