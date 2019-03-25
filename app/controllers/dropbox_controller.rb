@@ -7,23 +7,22 @@ class DropboxController < ApplicationController
       redirect_to url
     end
   
-    # Example call:
-    # GET /dropbox/auth_callback?code=VofXAX8DO1sAAAAAAAACUKBwkDZyMg1zKT0f_FNONeA
+   
     def auth_callback
         p params
       auth_bearer = authenticator.get_token(params[:code],
                                             :redirect_uri => redirect_uri)
       token = auth_bearer.token # This line is step 5 in the diagram.
       
-      File.open('/mnt/c/tmp/token.txt', 'w+'){|f| f.write(token)}
 
       # At this stage you may want to persist the reusable token we've acquired.
       # Remember that it's bound to the Dropbox account of your user.
   
       # If you persist this token, you can use it in subsequent requests or
       # background jobs to perform calls to Dropbox API such as the following.
-      #folders = DropboxApi::Client.new(token).list_folder "/"
-    #   render nothing: true, status: 200
+      folders = DropboxApi::Client.new(token).list_folder ""
+      pp folders
+      render html: folders, status: 200
     end
 
     def index
@@ -38,6 +37,7 @@ class DropboxController < ApplicationController
       client_secret = "6p0hnva7i8jbb88"
   
       DropboxApi::Authenticator.new(client_id, client_secret)
+
     end
   
     def redirect_uri
