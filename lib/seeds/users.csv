@@ -1,8 +1,8 @@
 id,first_name,last_name,title,email,encrypted_password
-1,Philippe,Bouillon,Comm Rep,philippe.bouillon@codeboxx.biz,mypass
-2,Mathieu,LeFrançois,Engineer,mathieu.lefrançois@codeboxx.biz,*6C8989366EAF75BB670AD8EA7A7FC1176A95CEF4
-3,Mathieu,Houde,Engineer,mathieu.houde@codeboxx.biz,*6C8989366EAF75BB670AD8EA7A7FC1176A95CEF4
-4,Remi,Gagnon,Engineer,remi.gagnon@codeboxx.biz,*6C8989366EAF75BB670AD8EA7A7FC1176A95CEF4
-5,Serge,Savoie,Engineer,serge.savoie@codeboxx.biz,*6C8989366EAF75BB670AD8EA7A7FC1176A95CEF4
-6,Felix-Antoine,Paradis,Engineer,felix-antoine.paradis@codeboxx.biz,*6C8989366EAF75BB670AD8EA7A7FC1176A95CEF4
-7,Nadya,Fortier,Director,nadya.fortier@codeboxx.biz,*6C8989366EAF75BB670AD8EA7A7FC1176A95CEF4
+1,Philippe,Bouillon,Comm Rep,philippe.bouillon@codeboxx.biz,$2a$11$fnq9WSInI14t9BPd3qB0X.1Sk1aWGOy0c1TWP.gsEQDaDFnRNI7oi
+2,Mathieu,LeFrançois,Engineer,mathieu.lefrançois@codeboxx.biz,$2a$11$fnq9WSInI14t9BPd3qB0X.1Sk1aWGOy0c1TWP.gsEQDaDFnRNI7oi
+3,Mathieu,Houde,Engineer,mathieu.houde@codeboxx.biz,$2a$11$fnq9WSInI14t9BPd3qB0X.1Sk1aWGOy0c1TWP.gsEQDaDFnRNI7oi
+4,Remi,Gagnon,Engineer,remi.gagnon@codeboxx.biz,$2a$11$fnq9WSInI14t9BPd3qB0X.1Sk1aWGOy0c1TWP.gsEQDaDFnRNI7oi
+5,Serge,Savoie,Engineer,serge.savoie@codeboxx.biz,$2a$11$fnq9WSInI14t9BPd3qB0X.1Sk1aWGOy0c1TWP.gsEQDaDFnRNI7oi
+6,Felix-Antoine,Paradis,Engineer,felix-antoine.paradis@codeboxx.biz,$2a$11$fnq9WSInI14t9BPd3qB0X.1Sk1aWGOy0c1TWP.gsEQDaDFnRNI7oi
+7,Nadya,Fortier,Director,nadya.fortier@codeboxx.biz,$2a$11$fnq9WSInI14t9BPd3qB0X.1Sk1aWGOy0c1TWP.gsEQDaDFnRNI7oi
