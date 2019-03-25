@@ -33,8 +33,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
 
       ## Recoverable
-     ## t.string   :reset_password_token
-     ## t.datetime :reset_password_sent_at
+     t.string   :reset_password_token
+     t.datetime :reset_password_sent_at
 
       ##t.timestamps null: false
     end
@@ -43,8 +43,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
     add_index :users, :last_name            
     add_index :users, :title            
     add_index :users, :email,                unique: true
-    #add_index :users, :reset_password_token, unique: true
-    # add_index :users, :confirmation_token,   unique: true
-    # add_index :users, :unlock_token,         unique: true
+    add_index :users, :reset_password_token, unique: true
+    #add_index :users, :confirmation_token,   unique: true
+    #add_index :users, :unlock_token,         unique: true
   end
 end

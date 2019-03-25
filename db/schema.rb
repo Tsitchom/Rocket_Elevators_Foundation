@@ -151,9 +151,12 @@ ActiveRecord::Schema.define(version: 2019_03_25_165821) do
     t.string "title"
     t.string "email", default: "", null: false
     t.string "encrypted_password", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["first_name"], name: "index_users_on_first_name"
     t.index ["last_name"], name: "index_users_on_last_name"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["title"], name: "index_users_on_title"
   end
 
