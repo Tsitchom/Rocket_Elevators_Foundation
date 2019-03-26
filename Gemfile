@@ -2,7 +2,15 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
+#================================================================================================
+# API: Dropbox
+gem 'dropbox-api'
+gem 'carrierwave-dropbox'
+# Zendesk
+gem "zendesk_api"
 
+
+#================================================================================================
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use mysql as the database for Active Record
@@ -59,6 +67,16 @@ gem 'chartkick', '~> 3.0', '>= 3.0.2'
 gem 'highcharts-rails', '~> 6.0', '>= 6.0.3'
 #
 gem 'groupdate', '~> 2.5', '>= 2.5.2'
+#
+gem 'twilio-ruby', '~> 4.11', '>= 4.11.1'
+#
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
+#
+gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
+#
+gem 'gon', '~> 6.2'
+#
+gem 'faraday', '~> 0.9.2'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

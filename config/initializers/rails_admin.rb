@@ -23,6 +23,55 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
 
+  config.model 'Geolocation' do
+    visible false
+  end
+  config.model 'Stat' do
+    visible false
+  end
+
+  config.model 'User' do
+    navigation_icon 'icon-user'
+    weight -3
+  end
+
+  config.model 'Customers' do
+    weight -2
+  end
+
+  config.model 'Lead' do
+    weight 1
+  end
+
+  config.model 'Quote' do
+    weight 2
+  end
+
+  config.model 'BuildingDetail' do
+    parent Building
+  end
+  
+  config.model 'Battery' do
+    parent Building
+  end
+
+  config.model 'Column' do
+    parent Building
+  end
+  
+  config.model 'Elevator' do
+    parent Building 
+  end
+
+  config.model 'Building' do
+    weight -1
+  end
+
+  config.model 'Address' do
+    weight 0
+  end
+
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
