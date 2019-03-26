@@ -26,6 +26,15 @@ class LeadsController < ApplicationController
   # POST /leads.json
   def create
     @lead = Lead.new(lead_params)
+
+    client = DropboxApi::Client.new('qaWo1RJdDUAAAAAAAAAAiuVLK_1vGY7r34oVIXzgk8fowWWuW41SEVEMqA5YRM2M')
+    client.create_folder("/#{@lead.full_name}")
+    content = @lead.attachment 
+
+    client.upload("/#{@lead.full_name}",content)
+
+    
+
  
     @customer = Customer.find_by company_name: params[:lead][:company_name]
     if @customer != nil
@@ -77,4 +86,49 @@ class LeadsController < ApplicationController
     def lead_params
       params.require(:lead).permit(:full_name, :company_name, :email, :phone_number, :project_name, :project_description, :department_in_charge, :message, :attachment)
     end
-end
+
+#=================================Dropbox==========================================================================================
+# def auth
+#       url = authenticator.authorize_url :redirect_uri => redirect_uri
+  
+#       redirect_to url
+#     end
+
+#     def auth_callback
+#       p params
+#     auth_bearer = authenticator.get_token(params[:code],
+#                                           :redirect_uri => redirect_uri)
+#     token = auth_bearer.token # This line is step 5 in the diagram.
+
+
+# def index
+#     client = DropboxApi::Client.new("qaWo1RJdDUAAAAAAAAAAb-tCxSmhw1GTHenR0Mq5PpKhroTGcUQ6dvLlefcSWSnr")
+    
+#     result = client.list_folder "/dropboxfolder"
+#     render json: folders
+#     result.entries
+#     result.has_more?   
+#   end
+
+#   def new_lead
+#     p = params["lead"].permit!
+#     client = DropboxApi::Client.new("qaWo1RJdDUAAAAAAAAAAb-tCxSmhw1GTHenR0Mq5PpKhroTGcUQ6dvLlefcSWSnr")
+#     attachment = params["lead"]["attachment"]
+#     if attachment
+#         p["attachment"] = attachment.read
+#     else
+#         p["attachment"] = nil
+#     end
+
+
+
+#     lead = Lead.new(p)
+#     lead.valid?
+#     lead.errors
+#     lead.save!
+
+#     def redirect_uri
+#           dropbox_auth_callback_url # => http://localhost:3000/dropbox/auth_callback
+#         end
+
+end                                                                                   
