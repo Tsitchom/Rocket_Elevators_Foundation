@@ -1,0 +1,9 @@
+development:
+ adapter: postgresql
+ encoding: unicode
+ database: RocketElevator
+ pool: 5
+ username: postgres
+ host: localhost
+ password: 5x2wozms
+ port: 5432
