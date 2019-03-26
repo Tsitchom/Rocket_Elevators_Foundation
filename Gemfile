@@ -55,6 +55,12 @@ gem 'highcharts-rails', '~> 6.0', '>= 6.0.3'
 gem 'groupdate', '~> 2.5', '>= 2.5.2'
 #
 gem 'twilio-ruby', '~> 4.11', '>= 4.11.1'
+#
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
+#
+gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
+#
+gem 'gon', '~> 6.2'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
