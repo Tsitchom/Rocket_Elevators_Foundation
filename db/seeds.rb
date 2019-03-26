@@ -61,6 +61,7 @@ csv.each do |row|
     t.full_name_service_person = row['full_name_service_person']
     t.phone_number_service_person = row['phone_number_service_person']
     t.email_service_person = row['email_service_person']
+    t.token= row['token']
     t.save!
 
 end
@@ -163,6 +164,7 @@ csv.each do |row|
     
     row = row.to_hash
     p row
+
     t = Quote.new
     t.department = row['department']
     t.full_name = row['full_name']
@@ -183,23 +185,24 @@ csv.each do |row|
 
 end
 
-# csv_text = File.read(Rails.root.join('lib', 'seeds', 'elevator.csv'))
-# csv = CSV.parse(csv_text, col_sep: ",", :headers => true)
-# csv.each do |row|
+ csv_text = File.read(Rails.root.join('lib', 'seeds', 'leads.csv'))
+ csv = CSV.parse(csv_text, col_sep: ",", :headers => true)
+ csv.each do |row|
     
-#     row = row.to_hash
-#     p row
-#     t = Lead.new
-#     t.customer_id = row['column_id']
-#     t.full_name = row['full_name']
-#     t.company_name = row['company_name']
-#     t.email = row['email']
-#     t.phone_number = row['phone_number']
-#     t.project_name = row['project_name']
-#     t.project_description = row['project_description']
-#     t.department_in_charge = row['department_in_charge']
-#     t.message = row['message']
-#     t.attachment = row['attachment']
-#     t.save!
+    row = row.to_hash
+    p row
+    t = Lead.new
+    t.customer_id = row['customer_id']
+    t.full_name = row['full_name']
+    t.company_name = row['company_name']
+    t.email = row['email']
+    t.phone_number = row['phone_number']
+    t.project_name = row['project_name']
+    t.project_description = row['project_description']
+    t.department_in_charge = row['department_in_charge']
+    t.message = row['message']
+    t.attachment = row['attachment']
+    t.save!
 
-# end
+end
+

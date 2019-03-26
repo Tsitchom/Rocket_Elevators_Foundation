@@ -1,0 +1,13 @@
+default: &default
+
+development:
+  <<: *default
+  app_key: "8xzfla1jkuy35on"
+
+production: &production
+  <<: *default
+  app_key: "8xzfla1jkuy35on"
+
+staging: &staging
+  <<: *default
+  app_key: "8xzfla1jkuy35on"

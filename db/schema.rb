@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2019_03_26_124729) do
     t.string "full_name_service_person"
     t.string "phone_number_service_person"
     t.string "email_service_person"
+    t.string "token"
     t.index ["address_id"], name: "index_customers_on_address_id"
     t.index ["user_id"], name: "index_customers_on_user_id"
   end
