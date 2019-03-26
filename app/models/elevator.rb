@@ -17,7 +17,7 @@ auth_token = '3def13f33e8de5589908cd875790cf96'
 
 message = @client.messages
   .create(
-     body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+     body: 'An intervention is occuring on one of your elevators',
      from: '+15817056993',
      to: '+14185809201' #CHANGER POUR NUM Dun COACH
    )

@@ -25,6 +25,8 @@ class PagesController < ApplicationController
 		contact = building.customer.full_name_service_person
 
 		#Then I want to take that info from DB and parse it into a JSON for my maps API ... 
+		@full_add = address.number_street + " " + address.city + " " + address.postal_code
+		# @response = 
 
 	end
 end

@@ -69,6 +69,8 @@ gem 'geocoder', '~> 1.3', '>= 1.3.7'
 gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 #
 gem 'gon', '~> 6.2'
+#
+gem 'faraday', '~> 0.9.2'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
