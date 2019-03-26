@@ -1,5 +1,5 @@
 # Load the Rails application.
 require_relative 'application'
-#config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env]
 # Initialize the Rails application.
 Rails.application.initialize!

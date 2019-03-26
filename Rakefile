@@ -4,3 +4,7 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+require "dropbox-api"
+require 'carrierwave/dropbox'
+# require "dropbox-api/tasks"
+# Dropbox::API::Tasks.install

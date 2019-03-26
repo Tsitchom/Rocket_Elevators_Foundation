@@ -4,8 +4,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.1'
 #================================================================================================
 # API: Dropbox
-gem 'dropbox_api'
-
+gem 'dropbox-api'
+gem 'carrierwave-dropbox'
+# Zendesk
+gem "zendesk_api"
 
 
 #================================================================================================

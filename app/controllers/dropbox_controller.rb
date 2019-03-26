@@ -35,7 +35,6 @@ class DropboxController < ApplicationController
     def authenticator
       client_id = "8xzfla1jkuy35on"
       client_secret = "6p0hnva7i8jbb88"
-  
       DropboxApi::Authenticator.new(client_id, client_secret)
 
     end
@@ -43,4 +42,5 @@ class DropboxController < ApplicationController
     def redirect_uri
       dropbox_auth_callback_url # => http://localhost:3000/dropbox/auth_callback
     end
+    
   end
