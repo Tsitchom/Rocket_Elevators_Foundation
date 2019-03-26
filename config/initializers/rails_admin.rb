@@ -4,15 +4,9 @@ RailsAdmin.config do |config|
 
   # == Devise ==
   config.authenticate_with do
-<<<<<<< HEAD
     warden.authenticate! scope: :user
   end
   config.current_user_method(&:current_user)
-=======
-   warden.authenticate! scope: :user
- end
- config.current_user_method(&:current_user)
->>>>>>> 6a730d65e12372eb4d5b72e9cdc981d56dfe7bad
 
   ## == Cancan ==
   # config.authorize_with :cancan

@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 # Use sendgrid-ruby to send emails
 gem 'sendgrid-ruby'
 gem 'smtpapi'
+gem 'sendgrid-actionmailer'
+gem 'figaro'
 
 gem 'bootstrap-sass', '~> 3.3.4'
 #
