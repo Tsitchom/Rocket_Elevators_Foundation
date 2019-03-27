@@ -27,14 +27,23 @@ class LeadsController < ApplicationController
   def create
     @lead = Lead.new(lead_params)
 
-    client = DropboxApi::Client.new('qaWo1RJdDUAAAAAAAAAAiuVLK_1vGY7r34oVIXzgk8fowWWuW41SEVEMqA5YRM2M')
+    client = DropboxApi::Client.new(ENV['DROPBOXAPI'])
+    # p ENV['DROPBOXAPI']
     client.create_folder("/#{@lead.full_name}")
-    content = @lead.attachment 
+    content = @lead.attachment
 
-    client.upload("/#{@lead.full_name}",content)
+    client.upload("/#{@lead.full_name}/#{@lead.company_name}.txt", content.read)
+
+    @lead.attachment = nil
+
+    @lead.save!
+
+
+
+  
 
     
-
+#===============================================================================================================================
  
     @customer = Customer.find_by company_name: params[:lead][:company_name]
     if @customer != nil
