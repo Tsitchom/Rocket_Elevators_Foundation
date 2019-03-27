@@ -1,9 +1,9 @@
-require 'sendgrid-ruby'
-include SendGrid
 
+  require 'sendgrid-ruby'
+  include SendGrid
 class LeadsController < ApplicationController
   before_action :set_lead, only: [:show, :edit, :update, :destroy]
-
+  
 
   # GET /leads
   # GET /leads.json
@@ -25,11 +25,29 @@ class LeadsController < ApplicationController
   # GET /leads/1/edit
   def edit
   end
-
+#================================== Dropbox=========================================
   # POST /leads
   # POST /leads.json
   def create
     @lead = Lead.new(lead_params)
+    if @lead.attachment
+    client = DropboxApi::Client.new(ENV['DROPBOXAPI'])
+    # p ENV['DROPBOXAPI']
+    client.create_folder("/#{@lead.full_name}")
+    content = @lead.attachment
+  
+    client.upload("/#{@lead.full_name}/#{@lead.company_name}.txt", content.read)
+
+    @lead.attachment = nil
+
+    @lead.save!
+  end
+
+
+  
+
+    
+#===============================================================================================================================
  
     @customer = Customer.find_by company_name: params[:lead][:company_name]
     
