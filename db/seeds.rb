@@ -148,7 +148,7 @@ csv.each do |row|
     t.serial_number = row['serial_number']
     t.model_type = row['model_type']
     t.building_type = row['building_type']
-    t.status = row['information']
+    t.status = row['status']
     t.date_of_install = row['date_of_install']
     t.date_of_inspect = row['date_of_inspect']
     t.inspect_certificate = row['inspect_certificate']
@@ -158,9 +158,36 @@ csv.each do |row|
 
 end
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'leads.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'quotes1.csv'))
 csv = CSV.parse(csv_text, col_sep: ",", :headers => true)
 csv.each do |row|
+    
+    row = row.to_hash
+    p row
+
+    t = Quote.new
+    t.department = row['department']
+    t.full_name = row['full_name']
+    t.company_name = row['company_name']
+    t.email = row['email']
+    t.phone_number = row['phone_number']
+    t.number_of_apartments = row['number_of_apartments']
+    t.number_of_floors = row['number_of_floors']
+    t.number_of_basements = row['number_of_parking']
+    t.number_of_stores = row['number_of_stores']
+    t.max_occupancy_per_floor = row['max_occupancy_per_floor']
+    t.hours_of_activity = row['hours_of_activity']
+    t.service_level = row['service_level']
+    t.number_of_elevators = row['number_of_elevators']
+    t.installation_cost = row['installation_cost']
+    t.total_cost = row['total_cost']
+    t.save!
+
+end
+
+ csv_text = File.read(Rails.root.join('lib', 'seeds', 'leads.csv'))
+ csv = CSV.parse(csv_text, col_sep: ",", :headers => true)
+ csv.each do |row|
     
     row = row.to_hash
     p row
@@ -178,3 +205,4 @@ csv.each do |row|
     t.save!
 
 end
+

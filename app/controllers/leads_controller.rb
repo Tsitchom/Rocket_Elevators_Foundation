@@ -1,5 +1,9 @@
+require 'sendgrid-ruby'
+include SendGrid
+
 class LeadsController < ApplicationController
   before_action :set_lead, only: [:show, :edit, :update, :destroy]
+
 
   # GET /leads
   # GET /leads.json
@@ -46,11 +50,20 @@ class LeadsController < ApplicationController
 #===============================================================================================================================
  
     @customer = Customer.find_by company_name: params[:lead][:company_name]
+    
+    ZendeskAPI::Ticket.create!($client, 
+      :subject => @lead.full_name + " from " + @lead.company_name, 
+      :comment => { :value => "The contact " + @lead.full_name + " from company " + @lead.company_name + " can be reached at email " + @lead.email + " and at phone number " + @lead.phone_number + ". " + @lead.department_in_charge + " has a project named " + @lead.project_name + " which would require contribution from Rocket Elevators. " + @lead.project_description + " Attached Message: " + @lead.message + " The Contact uploaded an attachment "}, 
+      :submitter_id => @lead.id, 
+      :type => "question",
+      :priority => "urgent")
+      
     if @customer != nil
         @lead.customer_id = @customer.id
     else @lead.customer_id = nil
     respond_to do |format|
       if @lead.save
+        sendgrid(@lead)
         format.html { redirect_to "/index#contact", alert: 'Lead was successfully created.' }
         format.json { render :show, status: :created, location: @lead }
       else
@@ -96,48 +109,33 @@ class LeadsController < ApplicationController
       params.require(:lead).permit(:full_name, :company_name, :email, :phone_number, :project_name, :project_description, :department_in_charge, :message, :attachment)
     end
 
-#=================================Dropbox==========================================================================================
-# def auth
-#       url = authenticator.authorize_url :redirect_uri => redirect_uri
-  
-#       redirect_to url
-#     end
+    def sendgrid(lead)
+      data = JSON.parse("{
+        \"personalizations\": [
+          {
+            \"to\": [
+              {
+                \"email\": \"#{lead.email}\"
+              }
+            ],
+            \"dynamic_template_data\": {
+              \"subject\": \"Sending with SendGrid is Fun\",
+              \"name\": \"#{lead.full_name}\",
+              \"project_name\": \"#{lead.project_name}\"
+            }
+          }
+        ],
+        \"from\": {
+          \"email\": \"contactus@rocketelevators.com\"
+        },
+      \"template_id\": \"d-6cf075098d4e44c98de042a8cb505f8f\"
+      }")
+ 
+      sg = SendGrid::API.new(api_key: ENV['sendgrid_api_key'])
+      response = sg.client.mail._('send').post(request_body: data)
+    end
 
-#     def auth_callback
-#       p params
-#     auth_bearer = authenticator.get_token(params[:code],
-#                                           :redirect_uri => redirect_uri)
-#     token = auth_bearer.token # This line is step 5 in the diagram.
-
-
-# def index
-#     client = DropboxApi::Client.new("qaWo1RJdDUAAAAAAAAAAb-tCxSmhw1GTHenR0Mq5PpKhroTGcUQ6dvLlefcSWSnr")
-    
-#     result = client.list_folder "/dropboxfolder"
-#     render json: folders
-#     result.entries
-#     result.has_more?   
-#   end
-
-#   def new_lead
-#     p = params["lead"].permit!
-#     client = DropboxApi::Client.new("qaWo1RJdDUAAAAAAAAAAb-tCxSmhw1GTHenR0Mq5PpKhroTGcUQ6dvLlefcSWSnr")
-#     attachment = params["lead"]["attachment"]
-#     if attachment
-#         p["attachment"] = attachment.read
-#     else
-#         p["attachment"] = nil
-#     end
+      
 
 
-
-#     lead = Lead.new(p)
-#     lead.valid?
-#     lead.errors
-#     lead.save!
-
-#     def redirect_uri
-#           dropbox_auth_callback_url # => http://localhost:3000/dropbox/auth_callback
-#         end
-
-end                                                                                   
+end
