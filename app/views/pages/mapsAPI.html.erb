@@ -154,6 +154,12 @@
                                         STATS
                                     </a>
                                 </li>
+							<%=link_to "", '/mapsAPI', :method => :get %>
+                                <li> <!-- STATS -->
+                                    <a href="/mapsAPI">
+                                        GEOLOCATIONS
+                                    </a>
+                                </li>
 									</ul>
 	
 								</nav>
@@ -241,11 +247,11 @@
 									// content: 'TEST CONTENT'
 								});
 								var window = '<h3>' + location.address + '</h3>' +
-									'<b>Customer: </b>' + location.customer + '</b>' + '</b>' +
-									'<b>Batteries: </b>' + location.batteries + '</b>' + '</b>' +
-									'<b>Columns: </b>' + location.columns + '</b>' + '</b>' +
-									'<b>Elevators: </b>' + location.elevators + '</b>' + '</b>' +
-									'<b>Contact: </b>' + location.contact;
+									'Customer: ' + location.customer + '</br>' + 
+									'<br>Batteries: ' + location.batteries + '</br>' +
+									'<br>Columns: ' + location.columns + '</br>' + 
+									'<br>Elevators: ' + location.elevators + '</br>' + 
+									'<br>Contact: ' + location.contact;
 									
 									marker.addListener('click', function() {
 									infoWindow.setContent(window)
