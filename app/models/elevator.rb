@@ -1,3 +1,4 @@
+require 'twilio-ruby'
 class Elevator < ApplicationRecord
     belongs_to :column
     after_commit do
@@ -7,7 +8,7 @@ class Elevator < ApplicationRecord
     end
     end
     def sendSMS() 
-        require 'twilio-ruby'
+
 
 # Your Account Sid and Auth Token from twilio.com/console
 # DANGER! This is insecure. See http://twil.io/secure
