@@ -26,7 +26,13 @@ class QuotesController < ApplicationController
   def create
 
     @quote = Quote.new(quote_params)
-
+    ZendeskAPI::Ticket.create!($client, 
+      :subject =>@quote.full_name + " from " + @quote.company_name, 
+      :comment => { :value => "The contact " + @quote.full_name + " from company " + @quote.company_name + " can be reached at email " + @quote.email + " and at phone number " + @quote.phone_number + ". " + @quote.department + " has a project named " + @quote.project_name + " which would require contribution from Rocket Elevators. " + @quote.project_description + " Attached Message: " + @quote.message + " The Contact uploaded an attachment "}, 
+      :submitter_id => @quote.id, 
+      :type => "task",
+      :priority => "urgent")
+    
     if params[:quote][:department] == 'Residential'
       @quote.number_of_apartments = params[:quote][:resi_number_of_apartments]
       @quote.number_of_floors = params[:quote][:resi_number_of_floors]

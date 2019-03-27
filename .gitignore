@@ -30,3 +30,6 @@ log/development.log
 
 .vscode
 development.log
+
+# Ignore application configuration
+/config/application.yml
