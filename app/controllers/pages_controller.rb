@@ -25,21 +25,25 @@ class PagesController < ApplicationController
 			elevators = Elevator.where(column_id: column_ids).count
 			contact = building.customer.full_name_service_person
 
-			#Then I want to take that info from DB and parse it into a JSON for my maps API ... 
-			@full_add = address.number_street + " " + address.city + " " + address.postal_code
-			@response = JSON.parse(Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{@full_add}&key=AIzaSyBps-kX8grkxiSLBr0Q7sKOL9Z2G9UwKWg").body)
 			
-		
+			if !address.latitude		
 
-			lat = @response["results"][0]["geometry"]["location"]["lat"]
-			lng = @response["results"][0]["geometry"]["location"]["lng"]
+				#Then I want to take that info from DB and parse it into a JSON for my maps API ... 
+				@full_add = address.number_street + " " + address.city + " " + address.postal_code
+				@response = JSON.parse(Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{@full_add}&key=AIzaSyBps-kX8grkxiSLBr0Q7sKOL9Z2G9UwKWg").body)
+				
 			
-			address.latitude = lat
-			address.longitude = lng
-			address.save!
-			# sleep(2)
+
+				lat = @response["results"][0]["geometry"]["location"]["lat"]
+				lng = @response["results"][0]["geometry"]["location"]["lng"]
+				
+				address.latitude = lat
+				address.longitude = lng
+				address.save!
+				# sleep(2)
+			end
 			
-			@markers << {address: address, lat: lat, lng: lng, customer: customer, batteries: batteries, columns: columns, elevators: elevators, contact: contact }
+			@markers << {address: address.display_address, lat: address.latitude, lng: address.longitude, customer: customer, batteries: batteries, columns: columns, elevators: elevators, contact: contact }
 		end
 	end
 end
