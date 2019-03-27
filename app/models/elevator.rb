@@ -11,8 +11,9 @@ class Elevator < ApplicationRecord
 
 # Your Account Sid and Auth Token from twilio.com/console
 # DANGER! This is insecure. See http://twil.io/secure
-account_sid = 'AC095d65393b5cb3530ceeb503e8d42eb9'
-auth_token = '3def13f33e8de5589908cd875790cf96'
+# account_sid = 'AC095d65393b5cb3530ceeb503e8d42eb9'
+# auth_token = '3def13f33e8de5589908cd875790cf96'
+
 @client = Twilio::REST::Client.new(ENV['TWILIO_API'], ENV['TWILIO_AUTH'])
 
 message = @client.messages
