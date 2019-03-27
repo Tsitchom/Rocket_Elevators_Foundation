@@ -1,3 +1,11 @@
+
+RELANCER le auth qund on va deploy (dropbox)
+
+
+
+
+
+
 WEEK 5 : MYSQL & POSTGRESQL DATABASES
 
 1) We added all the new tables in MYSQL with all the required rows and columns in regards to the mandate we had this week. In all, 8 new tables were created in MYSQL. You can see them in our Rails_Admin dashboard by logging in with an email (for example philippe.bouillon@codeboxx.biz) and a password (123456). You can also see them in MYSQL Workbench. The tables that needed it were assigned primary keys and foreign keys.

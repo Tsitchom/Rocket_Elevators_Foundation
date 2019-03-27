@@ -1,9 +1,9 @@
-require 'sendgrid-ruby'
-include SendGrid
 
+  require 'sendgrid-ruby'
+  include SendGrid
 class LeadsController < ApplicationController
   before_action :set_lead, only: [:show, :edit, :update, :destroy]
-
+  
 
   # GET /leads
   # GET /leads.json
@@ -25,21 +25,49 @@ class LeadsController < ApplicationController
   # GET /leads/1/edit
   def edit
   end
-
+#================================== Dropbox=========================================
   # POST /leads
   # POST /leads.json
   def create
     @lead = Lead.new(lead_params)
+    if @lead.attachment
+    client = DropboxApi::Client.new(ENV['DROPBOXAPI'])
+    # p ENV['DROPBOXAPI']
+    client.create_folder("/#{@lead.full_name}")
+    content = @lead.attachment
+  
+    client.upload("/#{@lead.full_name}/#{@lead.company_name}.txt", content.read)
+
+    @lead.attachment = nil
+
+    @lead.save!
+  end
+
+
+  
+
+    
+#===============================================================================================================================
  
     @customer = Customer.find_by company_name: params[:lead][:company_name]
     
+    if @lead.attachment != nil
+      message = "The Contact uploaded an attachment"
+    else 
+      message = "No file attachment"
+    end
+    #==================================== Zendesk API session =============================================# 
     ZendeskAPI::Ticket.create!($client, 
-      :subject => @lead.full_name + " from " + @lead.company_name, 
-      :comment => { :value => "The contact " + @lead.full_name + " from company " + @lead.company_name + " can be reached at email " + @lead.email + " and at phone number " + @lead.phone_number + ". " + @lead.department_in_charge + " has a project named " + @lead.project_name + " which would require contribution from Rocket Elevators. " + @lead.project_description + " Attached Message: " + @lead.message + " The Contact uploaded an attachment "}, 
-      :submitter_id => @lead.id, 
+      :subject => "#{@lead.full_name} from #{@lead.company_name}", 
+      :comment => { :value => "The contact #{@lead.full_name} from company #{@lead.company_name} can be reached at email #{@lead.email} and at phone number #{@lead.phone_number}. #{@lead.department_in_charge} has a project named #{@lead.project_name} which would require contribution from Rocket Elevators. 
+      #{@lead.project_description} 
+      Attached Message: #{@lead.message} 
+      #{message}"}, 
+      :submitter_id => @lead.id,
       :type => "question",
       :priority => "urgent")
-      
+    #==================================== END Zendesk API session =============================================#  
+
     if @customer != nil
         @lead.customer_id = @customer.id
     else @lead.customer_id = nil
@@ -91,6 +119,7 @@ class LeadsController < ApplicationController
       params.require(:lead).permit(:full_name, :company_name, :email, :phone_number, :project_name, :project_description, :department_in_charge, :message, :attachment)
     end
 
+    #==================================== sendgrid API session =============================================# 
     def sendgrid(lead)
       data = JSON.parse("{
         \"personalizations\": [
@@ -116,6 +145,7 @@ class LeadsController < ApplicationController
       sg = SendGrid::API.new(api_key: ENV['sendgrid_api_key'])
       response = sg.client.mail._('send').post(request_body: data)
     end
+    #==================================== END sendgrid API session =============================================# 
 
       
 
