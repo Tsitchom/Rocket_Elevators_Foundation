@@ -1,6 +1,8 @@
 require 'twilio-ruby'
+
 class Elevator < ApplicationRecord
     belongs_to :column
+
     after_commit do
         if status == 'intervention'
             sendSMS()
