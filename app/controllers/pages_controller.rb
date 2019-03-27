@@ -30,7 +30,7 @@ class PagesController < ApplicationController
 
 				#Then I want to take that info from DB and parse it into a JSON for my maps API ... 
 				@full_add = address.number_street + " " + address.city + " " + address.postal_code
-				@response = JSON.parse(Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{@full_add}&key=#{ENV["Google_API"]}").body)
+				@response = JSON.parse(Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{@full_add}&key=#{ENV["GOOGLE_API"]}").body)
 				
 			
 
