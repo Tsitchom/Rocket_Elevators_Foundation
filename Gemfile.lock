@@ -115,13 +115,10 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
-<<<<<<< HEAD
-=======
     dropbox-api (0.4.2)
       hashie
       multi_json
       oauth
->>>>>>> ef8035afbe8a2a91552e0b2eb8ab293dce061dea
     dropbox-sdk-v2 (0.0.3)
       http (~> 2.0)
     dropbox_api (0.1.16)
