@@ -32,6 +32,14 @@ class LeadsController < ApplicationController
     @lead = Lead.new(lead_params)
  
     @customer = Customer.find_by company_name: params[:lead][:company_name]
+    
+    ZendeskAPI::Ticket.create!($client, 
+      :subject => @lead.full_name + " from " + @lead.company_name, 
+      :comment => { :value => "The contact " + @lead.full_name + " from company " + @lead.company_name + " can be reached at email " + @lead.email + " and at phone number " + @lead.phone_number + ". " + @lead.department_in_charge + " has a project named " + @lead.project_name + " which would require contribution from Rocket Elevators. " + @lead.project_description + " Attached Message: " + @lead.message + " The Contact uploaded an attachment "}, 
+      :submitter_id => @lead.id, 
+      :type => "question",
+      :priority => "urgent")
+      
     if @customer != nil
         @lead.customer_id = @customer.id
     else @lead.customer_id = nil
@@ -100,13 +108,16 @@ class LeadsController < ApplicationController
           }
         ],
         \"from\": {
-          \"email\": \"support@rocketelevators.com\"
+          \"email\": \"contactus@rocketelevators.com\"
         },
-      \"template_id\": \"d-caecaa02942f4b0c9efdc9b448d32685\"
+      \"template_id\": \"d-6cf075098d4e44c98de042a8cb505f8f\"
       }")
  
       sg = SendGrid::API.new(api_key: ENV['sendgrid_api_key'])
- 
       response = sg.client.mail._('send').post(request_body: data)
     end
+
+      
+
+
 end
