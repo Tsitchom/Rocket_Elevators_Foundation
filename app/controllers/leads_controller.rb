@@ -31,6 +31,7 @@ class LeadsController < ApplicationController
     @lead = Lead.new(lead_params)
 
     #==================================== Zendesk API session =============================================# 
+    # create a ticket when someone complete the contact us form
     if @lead.attachment != nil
       message = "The Contact uploaded an attachment"
     else 
@@ -63,6 +64,7 @@ class LeadsController < ApplicationController
       #delete and save file
       @lead.attachment = nil
       @lead.save!
+      end
     end
 
     # ajouter que si le fichier existe deja, envoyer le fichier dans le dossier existant
@@ -122,6 +124,7 @@ class LeadsController < ApplicationController
   end
 
   #==================================== sendgrid API session =============================================# 
+  # send an email to the person who complete the contact us form
   def sendgrid(lead)
     data = JSON.parse("{
       \"personalizations\": [
@@ -141,7 +144,7 @@ class LeadsController < ApplicationController
       \"from\": {
         \"email\": \"contactus@rocketelevators.com\"
       },
-    \"template_id\": \"d-6cf075098d4e44c98de042a8cb505f8f\"
+    \"template_id\": \"d-5c7c728ce0ff42d9abc7dbba5005e56d\"
     }")
  
     sg = SendGrid::API.new(api_key: ENV['sendgrid_api_key'])
