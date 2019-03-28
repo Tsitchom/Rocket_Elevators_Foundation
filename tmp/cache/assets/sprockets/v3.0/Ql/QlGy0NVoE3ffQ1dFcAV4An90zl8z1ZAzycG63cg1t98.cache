@@ -1,0 +1,15 @@
+{:uriI"˜file://app/assets/javascripts/plugins/chart.chartjs/bower.json?type=application/json&id=cf8470c9659b335c393150565e7c1a5512e62df0f2deec6c607cc8b01c1c94c7:ET:load_pathI"app/assets/javascripts;T:filenameI"<app/assets/javascripts/plugins/chart.chartjs/bower.json;T:	nameI" plugins/chart.chartjs/bower;T:logical_pathI"%plugins/chart.chartjs/bower.json;T:content_typeI"application/json;T:sourceI"ï{
+  "name": "Chart.js",
+  "version": "1.0.2",
+  "description": "Simple HTML5 Charts using the canvas element",
+  "homepage": "https://github.com/nnnick/Chart.js",
+  "author": "nnnick",
+  "main": [
+    "Chart.js"
+  ],
+  "dependencies": {}
+};T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"Jfile-digest://app/assets/javascripts/plugins/chart.chartjs/bower.json;TTF:charsetI"
+utf-8;F:digest"%Qø©ÌU'#ãLiñ=J:¤uÅ÷ÃßÎø;,J:lengthiï:dependencies_digest"%ºap‘kÉ]œËÐ-¸Ú¨_Ëšü[‰ãÊùÜž:idI"Ecf8470c9659b335c393150565e7c1a5512e62df0f2deec6c607cc8b01c1c94c7;F:
+mtimel+Î>™\

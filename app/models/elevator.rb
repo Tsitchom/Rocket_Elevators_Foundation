@@ -2,7 +2,7 @@ require 'twilio-ruby'
 
 class Elevator < ApplicationRecord
     belongs_to :column
-<<<<<<< HEAD
+
     # before_save do 
     
     #    notification()
@@ -21,7 +21,7 @@ class Elevator < ApplicationRecord
 
 
 
-=======
+
 
     after_commit do
         if status == 'intervention'
@@ -48,5 +48,5 @@ message = @client.messages
 
 puts message.sid
   end
->>>>>>> 5978ee3db0e89eac9fc1b5d849626f2fa8561d90
+
 end

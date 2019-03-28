@@ -1,0 +1,13 @@
+{:uriI"¨file://app/assets/javascripts/plugins/slider.layerslider/skins/glass/info.json?type=application/json&id=c773f25268b82d4c12c7846655fa6f6a222b9ed683cf4e5bcca694c5d2a35d22:ET:load_pathI"app/assets/javascripts;T:filenameI"Lapp/assets/javascripts/plugins/slider.layerslider/skins/glass/info.json;T:	nameI"0plugins/slider.layerslider/skins/glass/info;T:logical_pathI"5plugins/slider.layerslider/skins/glass/info.json;T:content_typeI"application/json;T:sourceI"¤{
+	"name" : "Glass",
+	"version" : "4.6.0",
+	"requires" : "4.5.5",
+	"author" : "Kreatura Media",
+	"created" : "2013-01-15",
+	"updated" : "2013-07-29",
+	"note" : ""
+};T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"Zfile-digest://app/assets/javascripts/plugins/slider.layerslider/skins/glass/info.json;TTF:charsetI"
+utf-8;F:digest"%‹¯‘Vä™Ğû#r#L´ô]a¬WîÒêŞ‚lQé©¹”:lengthi¤:dependencies_digest"%‹¨2£†ÒIpÌÁ²ëhTñ½<©ñ¼¢û|_<,:idI"Ec773f25268b82d4c12c7846655fa6f6a222b9ed683cf4e5bcca694c5d2a35d22;F:
+mtimel+Î>™\
