@@ -78,7 +78,6 @@ gem 'gon', '~> 6.2'
 #
 gem 'faraday', '~> 0.9.2'
 #
-gem 'slack-notifier', '~> 1.5', '>= 1.5.1'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

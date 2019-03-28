@@ -63,6 +63,7 @@ class LeadsController < ApplicationController
       #delete and save file
       @lead.attachment = nil
       @lead.save!
+      end
     end
 
     # ajouter que si le fichier existe deja, envoyer le fichier dans le dossier existant
