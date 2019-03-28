@@ -33,7 +33,12 @@ Rails.application.routes.draw do
   get '/work11', to: 'pages#work11'
   get '/work12', to: 'pages#work12'
   get '/stats', to: 'stats#stats'
+<<<<<<< HEAD
   get '/watson', to: 'watson#watson'
+=======
+
+  
+>>>>>>> 5978ee3db0e89eac9fc1b5d849626f2fa8561d90
   # Dropbox
   get 'dropbox/auth' => 'dropbox#auth'
   get 'dropbox/auth_callback' => 'dropbox#auth_callback'

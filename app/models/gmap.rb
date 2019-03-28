@@ -1,0 +1,2 @@
+class Gmap < ApplicationRecord
+end

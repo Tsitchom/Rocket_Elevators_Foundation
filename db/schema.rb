@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_124729) do
+ActiveRecord::Schema.define(version: 2019_03_28_120907) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "address_type", null: false
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2019_03_26_124729) do
     t.string "postal_code", null: false
     t.string "country", null: false
     t.text "notes"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -100,6 +102,11 @@ ActiveRecord::Schema.define(version: 2019_03_26_124729) do
   end
 
   create_table "geolocations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gmaps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

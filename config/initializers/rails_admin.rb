@@ -4,8 +4,13 @@ RailsAdmin.config do |config|
 
   # == Devise ==
   config.authenticate_with do
+<<<<<<< HEAD
    warden.authenticate! scope: :user
     end
+=======
+    warden.authenticate! scope: :user
+  end
+>>>>>>> 5978ee3db0e89eac9fc1b5d849626f2fa8561d90
   config.current_user_method(&:current_user)
 
   ## == Cancan ==
