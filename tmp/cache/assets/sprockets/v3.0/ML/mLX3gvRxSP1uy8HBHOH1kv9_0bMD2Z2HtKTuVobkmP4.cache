@@ -1,0 +1,13 @@
+{:uriI"ªfile://app/assets/javascripts/plugins/slider.layerslider/skins/minimal/info.json?type=application/json&id=07a262b9e5491ba1dee997d715714d825a8d4137401ed329392761ae9ef76c75:ET:load_pathI"app/assets/javascripts;T:filenameI"Napp/assets/javascripts/plugins/slider.layerslider/skins/minimal/info.json;T:	nameI"2plugins/slider.layerslider/skins/minimal/info;T:logical_pathI"7plugins/slider.layerslider/skins/minimal/info.json;T:content_typeI"application/json;T:sourceI"¦{
+	"name" : "Minimal",
+	"version" : "4.6.0",
+	"requires" : "4.5.5",
+	"author" : "Kreatura Media",
+	"created" : "2013-01-15",
+	"updated" : "2013-07-29",
+	"note" : ""
+};T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"\file-digest://app/assets/javascripts/plugins/slider.layerslider/skins/minimal/info.json;TTF:charsetI"
+utf-8;F:digest"%ÁsÀI•:°<«Íþ1æë?›Tòq½"kÂ;ÀäÒŽÂ:lengthi¦:dependencies_digest"%IÒk19IW^ö/W'i_½ÑlDØ¯’b<áë+:idI"E07a262b9e5491ba1dee997d715714d825a8d4137401ed329392761ae9ef76c75;F:
+mtimel+Î>™\

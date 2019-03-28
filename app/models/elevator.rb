@@ -1,3 +1,5 @@
+require 'twilio-ruby'
+
 class Elevator < ApplicationRecord
   belongs_to :column
   after_commit do
@@ -5,6 +7,7 @@ class Elevator < ApplicationRecord
       sendSMS()
     end
   end
+
 
   # sendSMS uses twilio API to send sms
   def sendSMS() 

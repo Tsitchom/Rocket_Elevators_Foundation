@@ -77,6 +77,7 @@ gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 gem 'gon', '~> 6.2'
 #
 gem 'faraday', '~> 0.9.2'
+#
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -122,3 +123,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+#==========================================
+# API IBM WATSON
+gem 'ibm_watson'
+
+#==========================================
+# API Slack
+gem "slack-notifier"
