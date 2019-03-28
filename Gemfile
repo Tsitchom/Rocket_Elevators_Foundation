@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.1'
 #================================================================================================
 # API: Dropbox
-gem 'dropbox-api'
+gem 'dropbox_api'
 gem 'carrierwave-dropbox'
 # Zendesk
 gem "zendesk_api"
@@ -21,8 +21,14 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
+# See https://github.com/rails/execjs#readme for more supported runtimes   
 # gem 'mini_racer', platforms: :ruby
+
+# Use sendgrid-ruby to send emails
+gem 'sendgrid-ruby'
+gem 'smtpapi'
+gem 'sendgrid-actionmailer'
+gem 'figaro'
 
 gem 'bootstrap-sass', '~> 3.3.4'
 #
@@ -71,6 +77,7 @@ gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 gem 'gon', '~> 6.2'
 #
 gem 'faraday', '~> 0.9.2'
+#
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -116,3 +123,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+#==========================================
+# API IBM WATSON
+gem 'ibm_watson'
+
+#==========================================
+# API Slack
+gem "slack-notifier"

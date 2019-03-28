@@ -12,5 +12,9 @@ class Address < ApplicationRecord
        # récupérez ici votre adresse concaténée
   
     end
+
+    def display_address
+        self.number_street + " " + self.city + " " + self.postal_code
+    end
   
 end

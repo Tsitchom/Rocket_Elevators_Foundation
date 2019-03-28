@@ -154,6 +154,12 @@
                                         STATS
                                     </a>
                                 </li>
+							<%=link_to "", '/mapsAPI', :method => :get %>
+                                <li> <!-- STATS -->
+                                    <a href="/mapsAPI">
+                                        GEOLOCATIONS
+                                    </a>
+                                </li>
 									</ul>
 	
 								</nav>
@@ -208,34 +214,59 @@
 					<div class="card-content">
 						<div id="map"></div>
 						   <script>
+
+						var marker_list = [];
+						
+						<% @markers.each do |location| %>
+							marker_list.push( {address: "<%= location[:address] %>",
+							lat: <%= location[:lat] %>,
+							lng: <%= location[:lng] %>,
+							customer: "<%= location[:customer] %>", 
+							batteries: "<%= location[:batteries] %>",
+							columns: "<%= location[:columns] %> ",
+							elevators: "<%= location[:elevators] %> ",
+							contact: "<%= location[:contact] %> "}
+							);
+
+						<% end %> 
+						  
 								// Initialize and add the map
-								function initMap() {
-								// The location of Quebec
+						function initMap() {
+
+								// The location of Quebec - Our HQ
 								var quebec = {lat: 46.8139, lng: -71.2080};
-								// The map, centered at Uluru
+								// The map, centered at Quebec
 								var map = new google.maps.Map(
 									document.getElementById('map'), {zoom: 8, center: quebec});
 
-								// Add marker FUNCTION
-								function addMarker(coords){
-									var marker = new google.maps.Marker({position: quebec, map: map});
-								}
-								addMarker();
+								var geolocations = marker_list.map(function(location, i){
+									var marker = new google.maps.Marker({
+									position: location,
+									map: map
+								});
+								var infoWindow = new google.maps.InfoWindow({
+									maxWidth: 300
+									// content: 'TEST CONTENT'
+								});
+								var window = '<h3>' + location.address + '</h3>' +
+									'Customer: ' + location.customer + '</br>' + 
+									'<br>Batteries: ' + location.batteries + '</br>' +
+									'<br>Columns: ' + location.columns + '</br>' + 
+									'<br>Elevators: ' + location.elevators + '</br>' + 
+									'<br>Contact: ' + location.contact;
+									
+									marker.addListener('click', function() {
+									infoWindow.setContent(window)
+									infoWindow.open(map, marker);
+								});
 
+									return marker
+								});
 
-								// The marker, positioned at Uluru
-								// var marker = new google.maps.Marker({position: quebec, map: map});
-
-								// var infoWindow = new google.maps.InfoWindow({
-								// 	content: 'TEST CONTENT'
-								// });
-								// marker.addListener('click', function() {
-								// 	infoWindow.open(map, marker);
-								// })
-								}
+						}
 							</script>
 							<script async defer
-									src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiMjkBU2OwKIhRJlfzsY9FZDw9ur-IpFc&callback=initMap">
+									src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_API']%>&callback=initMap">
 							</script>
 
 					</div>
@@ -258,18 +289,18 @@
 
 							<!-- Subtitle -->
 							<div class="heading-title heading-border">
-								<h2>Realised by the Elite Team</h2>
+								<h2>Find your building and look-up your elevators ! </h2>
 
 								<ul class="list-inline categories m-0">
-									<li><a href="#">Photography</a></li>
-									<li><a href="#">Design</a></li>
+									<li><a href="#">Real-time</a></li>
+									<li><a href="#">Dynamic</a></li>
 								</ul>
 
 							</div>
 							<!-- /Subtitle -->
 
-							<p>Achived in 2018, this project took 9 months to built and has won the award Most Innovative Projet Of The Year.</p>
-							<p class="font-lato fs-18">The chief of the project, M.Genest has dedicated a lot of work and effort the complete this amazing projet.</p>
+							<p></p>
+							<p class="font-lato fs-18">Find your building on the map and click it to see its full info ! </p>
 						
 						</div>
 
