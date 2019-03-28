@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  	before_action :authenticate_user!, only: [:mapsAPI]
+	
 	def index
 		@lead = Lead.new
 	end
@@ -33,7 +35,7 @@ class PagesController < ApplicationController
 				@response = JSON.parse(Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{@full_add}&key=#{ENV["GOOGLE_API"]}").body)
 				
 			pp address
-pp  @response
+			pp  @response
 
 				lat = @response["results"][0]["geometry"]["location"]["lat"]
 				lng = @response["results"][0]["geometry"]["location"]["lng"]
