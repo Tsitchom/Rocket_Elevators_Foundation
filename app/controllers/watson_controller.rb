@@ -23,10 +23,10 @@ class WatsonController < ApplicationController
         use_ssl: uri.scheme == "https",
       }
 
-       #response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-        #http.request(request)
+       response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+        http.request(request)
        
-      #end
+      end
 
       send_data response.body
   

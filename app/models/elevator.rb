@@ -30,7 +30,9 @@ class Elevator < ApplicationRecord
   end
 
      before_save do
+      if((status != status_was) and (status_was != nil))
        notification()
+      end
       end
      def notification 
        notifier = Slack::Notifier.new ENV["slackAPI"] do
