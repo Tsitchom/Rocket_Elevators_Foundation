@@ -28,6 +28,7 @@ class QuotesController < ApplicationController
     @quote = Quote.new(quote_params)
   
     #==================================== Zendesk API session =============================================#  
+    # create a ticket when someone complete the quote form
     ZendeskAPI::Ticket.create!($client, 
       :subject => "#{@quote.full_name} from #{@quote.company_name}", 
       :comment => { :value => "The contact #{@quote.full_name} from company #{@quote.company_name} ask for a quote for #{@quote.number_of_elevators}. #{@quote.full_name} can be reached at email #{@quote.email} and at phone number #{@quote.phone_number}. #{@quote.department} has a project which would require contribution from Rocket Elevators. 
@@ -35,7 +36,7 @@ class QuotesController < ApplicationController
       :submitter_id => @quote.id,
       :type => "question",
       :priority => "urgent")
-    #==================================== END Zendesk API session =============================================#  
+    #==================================== END Zendesk API session =========================================#  
     
     if params[:quote][:department] == 'Residential'
       @quote.number_of_apartments = params[:quote][:resi_number_of_apartments]

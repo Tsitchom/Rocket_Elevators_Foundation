@@ -23,6 +23,7 @@ csv.each do |row|
     t.postal_code = row['postal_code']
     t.country = row['country']
     t.notes = row['notes']
+    
     t.save!
 
 end
