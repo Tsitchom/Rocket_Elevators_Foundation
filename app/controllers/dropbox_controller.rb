@@ -18,11 +18,6 @@ class DropboxController < ApplicationController
       render html: 'Dropbox connected', status: 200
     end
     
-    # def index
-    #   folders = DropboxApi::Client.new(File.read('/mnt/c/tmp/token.txt')).list_folder ""
-    #   render json: folders
-    # end 
-    
     private
     
     def authenticator
@@ -37,8 +32,4 @@ class DropboxController < ApplicationController
       dropbox_auth_callback_url # => http://localhost:3000/dropbox/auth_callback
     end
     
-
-
-
-
 end
