@@ -30,3 +30,7 @@ log/development.log
 
 .vscode
 development.log
+
+Gemfile.lock
+
+/config/application.yml
