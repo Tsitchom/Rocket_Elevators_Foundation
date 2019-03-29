@@ -1,7 +1,29 @@
+**WEEK 7 : APIs ---- http://raphaelvallee.com **
 
-RELANCER le auth qund on va deploy (dropbox)
+1) Google Maps API :
+The Google Maps API can be accessed through the "GEOLOCATIONS" menu on the top of raphaelvallee.com. Although the Codeboxx file mentionned to put it in the admin panel, we were told from Philippe it was also okay to put it on the main page, which we did. The user has to be authenticated first. You can use the user email "philippe.bouillon@codeboxx.biz" with the following password : "123456". Then, you will be able to access the Google Maps API with all the markers on the map on which you can click to see the Info Window that tells the following info: localization of the building (its address), number of floors, the customer's name, the number of batteries, columns and elevators and the full name of the tech contact. 
+**WARNING** : we exceeded our geocoding quota for the March 29th 2019 day so if you run the GEOLOCATION portion of our website, you may not get all the markers -----> "You have exceeded your daily request quota for this API. If you did not set a custom daily request quota, verify your project has an active billing account: http://g.co/dev/maps-no-account"
 
+2) Twilio :
+Twilio sends a notification to a customer's cellphone when an elevator's status is changed to ''intervention''. For our use case, the Coach correcting the work will have to change the Twilio phone number from '4185809201' (Raphaël's phone number) to his own phone number in the server. It is stored in a variable called 'phone_recipient' in an application.yml file sent to Mathieu Lefrancois. The user will then receive the following message on his phone : "Status of elevator number #{self.id} of column number #{self.column.id} of battery number #{self.column.battery.id} of building at #{self.column.battery.building.address.number_street} in {self.column.battery.building.address.city} passed to 'intervention' ". To trigger it, the user can log into the 'EMPLOYEE' section, use  the user email "philippe.bouillon@codeboxx.biz" with the following password : "123456", go in the 'Elevators' section of the dashboard and change an elevator status to 'intervention' to receive a text message. 
 
+3) Slack :
+Slack works kind of in the same way as Twilio in the sense that it sends a Slack message to the Rocket Elevators Slack workspace in the #elevator_operations to notify the user that an elevator has changed status. To trigger it, the user can log into the 'EMPLOYEE' section, use  the user email "philippe.bouillon@codeboxx.biz" with the following password : "123456", go in the 'Elevators' section of the dashboard and change an elevator status to whatever the status is to receive a Slack message. 
+
+4) Dropbox :
+To see how Dropbox works, the user can create a lead in the 'Contact' form on the main page of raphaelvallee.com . To see how Dropbox works though, the created lead has to be an existing customer. We suggest populating the following fields with the associated content :
+Full name : Elyse Preist , Email : sdunnaway4@fastcompany.com , Company Name : Buzzdog , (the other fields can be filled with whatever yuou want). Then, select a file to upload in the attachment field. Then you can login to the Dropbox account with the email and password transmitted to Philippe privately in Slack by Raphaël Vallée. You will then be able to see the new file registered in Elyse Preist's account section in our Dropbox.
+
+5) Sendgrid : 
+The Sendgrid API is triggered when the Contact form is filled and sent by the user. The user has to enter a VALID email for the Sendgrid API to work. Once the user presses the ''Send Message'' button, an email is sent to the user's email address. **WARNING** : the email will first go in the SPAM category **and the Rocket Elevators logo will NOT be viewable**. The user will have to accept the spam for the email to go in the usual reception box and the logo will appear.
+
+6) IBM Watson :
+This API is pretty simple. The user has to go in the ''EMPLOYEE'' section of the website (it can be accessed through the main page). You can login with the user email "philippe.bouillon@codeboxx.biz" with the following password : "123456". The IBM Watson API can be accessed through the dashboard's main page. Because IBM Watson is pretty restricted and sensitive in terms of quotas, the user has to press the PLAY button in the menu under the 'Your Vocal Assistant' portion of the dashboard. The required message will then be played.
+
+7) Zendesk :
+The user first has to login to the Zendesk account with the credentials given to Philippe privately in the Codeboxx Slack Workspace. Then, he can either fill a contact form in the main page or a quote in the /gform section of the website (this is ususally done by a customer, but for the purpose of this simulation the user will have to do it). The Rocket Elevator employee will then receive a ticket in his Zendesk API related to the demand made by the customer. 
+
+****************END OF WEEK 7 READMe ***********************************************************************
 
 
 
