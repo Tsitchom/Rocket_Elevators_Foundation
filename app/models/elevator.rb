@@ -21,7 +21,7 @@ class Elevator < ApplicationRecord
 
     message = @client.messages
     .create(
-      body: 'An intervention is occuring on one of your elevators',
+      body: "Status of elevator number #{self.id} of column number #{self.column.id} of battery number #{self.column.battery.id} of building at #{self.column.battery.building.address.number_street} in #{self.column.battery.building.address.city} passed to 'intervention' ",
       from: ENV['phone_sender'],
       to: ENV['phone_recipient'] #CHANGER POUR NUM Dun COACH
     )
