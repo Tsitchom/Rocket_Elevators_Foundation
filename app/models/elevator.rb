@@ -24,7 +24,7 @@ class Elevator < ApplicationRecord
     .create(
       body: "Status of elevator number #{self.id} of column number #{self.column.id} of battery number #{self.column.battery.id} of building at #{self.column.battery.building.address.number_street} in #{self.column.battery.building.address.city} passed to 'intervention' ",
       from: ENV['phone_sender'],
-      to: "+1#{self.column.battery.building.phone_number_admin_person}" #CHANGER POUR NUM Dun COACH
+      to: "+1#{self.column.battery.building.phone_number_tech_person}" #CHANGER POUR NUM Dun COACH
     )
 
     puts message.sid
