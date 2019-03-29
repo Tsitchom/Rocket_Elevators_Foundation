@@ -2,7 +2,7 @@ id,address_type,status,entity,number_street,apt_number,city,postal_code,country,
 1,Business,Active,Customer,115 rue Seigneuriale, - ,Quebec,G1E4Y4,Canada,Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
 2,Shipping,Active,Customer,606 Annamark Hill,2,Salt Lake City,84105,United States,"Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui."
 3,Billing,Active,Building,42349 Lillian Place, - ,Jackson,39282,United States,"In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus."
-4,Billing,Active,Customer,22 Kingsford Pass,4,Picton,S0H,Canada,"Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat."
+4,Billing,Active,Customer,13 Center St,4,Picton,K0K2V0,Canada,"Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat."
 5,Billing,Inactive, - ,09 Anderson Junction, - ,Tacoma,98442,United States, - 
 6,Business,Active, - ,5 Bultman Street, - ,Bowen Island,V7W,Canada, - 
 7,Home,Active, - ,4054 Stone Corner Center, - ,Oromocto,E2V,Canada, - 

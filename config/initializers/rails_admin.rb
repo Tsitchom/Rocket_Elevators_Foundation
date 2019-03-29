@@ -31,6 +31,10 @@ RailsAdmin.config do |config|
     visible false
   end
 
+  config.model 'Gmap' do
+   visible false
+  end
+
   config.model 'User' do
     navigation_icon 'icon-user'
     weight -3
