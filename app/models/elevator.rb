@@ -29,17 +29,17 @@ class Elevator < ApplicationRecord
     puts message.sid
   end
 
-     before_save do
-       notification()
-      end
-     def notification 
-       notifier = Slack::Notifier.new ENV["slackAPI"] do
-         defaults channel: "#elevator_operations",
-                 username: "TeamRaph"
-       end
+    #  before_save do
+    #    notification()
+    #   end
+    #  def notification 
+    #    notifier = Slack::Notifier.new ENV["slackAPI"] do
+    #      defaults channel: "#elevator_operations",
+    #              username: "TeamRaph"
+    #    end
       
-       notifier.ping "The Elevator #{self.id} with serial number #{self.serial_number} changed status from #{self.status_was} to #{self.status}"
-     end
+    #    notifier.ping "The Elevator #{self.id} with serial number #{self.serial_number} changed status from #{self.status_was} to #{self.status}"
+    #  end
 
 
 end
