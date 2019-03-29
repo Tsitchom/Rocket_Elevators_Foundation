@@ -31,6 +31,8 @@ class PagesController < ApplicationController
 
 				building.batteries.all.each do |battery|
 					number_of_floors = battery.columns.first.number_of_floors
+
+				p number_of_floors
 			
 				if !address.latitude		
 

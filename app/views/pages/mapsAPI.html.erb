@@ -225,7 +225,8 @@
 							batteries: "<%= location[:batteries] %>",
 							columns: "<%= location[:columns] %> ",
 							elevators: "<%= location[:elevators] %> ",
-							contact: "<%= location[:contact] %> "}
+							contact: "<%= location[:contact] %> ",
+							number_of_floors: "<%= location[:number_of_floors] %>"}
 							);
 
 						<% end %> 
@@ -253,7 +254,8 @@
 									'<br>Batteries: ' + location.batteries + '</br>' +
 									'<br>Columns: ' + location.columns + '</br>' + 
 									'<br>Elevators: ' + location.elevators + '</br>' + 
-									'<br>Contact: ' + location.contact;
+									'<br>Contact: ' + location.contact + '</br>' +
+									'<br>No of floors: ' + location.number_of_floors;
 									
 									marker.addListener('click', function() {
 									infoWindow.setContent(window)

@@ -233,6 +233,7 @@
 						function initMap() {
 
 								// The location of Quebec - Our HQ
+								console.log(number_of_floors)
 								var quebec = {lat: 46.8139, lng: -71.2080};
 								// The map, centered at Quebec
 								var map = new google.maps.Map(
@@ -253,7 +254,7 @@
 									'<br>Columns: ' + location.columns + '</br>' + 
 									'<br>Elevators: ' + location.elevators + '</br>' + 
 									'<br>Contact: ' + location.contact + '</br>' +
-									'<br>No of floors: ' + location.number_of_floors;
+									'<br>No of floors: ' + location.number_of_floors + '</br>';
 									
 									marker.addListener('click', function() {
 									infoWindow.setContent(window)
