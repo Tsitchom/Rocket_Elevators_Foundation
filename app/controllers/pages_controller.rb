@@ -50,9 +50,10 @@ class PagesController < ApplicationController
 					address.longitude = lng
 					address.save!
 					# sleep(2)
-				end
+				
 			
 				@markers << {address: address.display_address, lat: address.latitude, lng: address.longitude, customer: customer, batteries: batteries, columns: columns, elevators: elevators, contact: contact, number_of_floors: number_of_floors }
+				end
 			end
 		end
 	end
