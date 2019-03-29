@@ -44,7 +44,7 @@ class PagesController < ApplicationController
 			pp address
 			pp  @response
 
-			    if @response["results"]
+			    if @response["results"].size != 0 	
 					lat = @response["results"][0]["geometry"]["location"]["lat"]
 					lng = @response["results"][0]["geometry"]["location"]["lng"]
 				
