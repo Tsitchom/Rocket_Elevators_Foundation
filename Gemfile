@@ -58,6 +58,8 @@ gem 'rvm1-capistrano3', require: false
 #
 gem 'capistrano3-puma'
 #
+gem 'capistrano-rails-db'
+#
 gem 'pg', '~> 1.1', '>= 1.1.4'
 #
 gem 'whenever', require: false
