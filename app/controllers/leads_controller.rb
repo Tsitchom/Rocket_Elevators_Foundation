@@ -125,7 +125,7 @@ class LeadsController < ApplicationController
       \"from\": {
         \"email\": \"contactus@rocketelevators.com\"
       },
-    \"template_id\": \"d-5c7c728ce0ff42d9abc7dbba5005e56d\"
+    \"template_id\": \"d-4b8f080e0e4441efade8a13ecff3ddcd\"
     }")
  
     sg = SendGrid::API.new(api_key: ENV['sendgrid_api_key'])
