@@ -40,8 +40,8 @@ class Elevator < ApplicationRecord
                  username: "TeamRaph"
        end
       
-    #    notifier.ping "The Elevator #{self.id} with serial number #{self.serial_number} changed status from #{self.status_was} to #{self.status}"
-    #  end
+       notifier.ping "The Elevator #{self.id} with serial number #{self.serial_number} changed status from #{self.status_was} to #{self.status}"
+     end
 
 
 end
