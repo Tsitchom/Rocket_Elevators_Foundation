@@ -13,21 +13,20 @@ class PagesController < ApplicationController
 	def residential
 	end
 
+	# The method in which the GEOLOCATION part of the website is managed : the geocoding of the addresses are put in an array and sent in the mapsAPI page from #pages
 	def mapsAPI
 		@buildings = Building.all
 		@markers = []
 
 		Building.find_each do |building|
-			#id = building.id
 			address = building.address
-			customer = building.customer.company_name #probably cant go through customer in Building.find_each
+			customer = building.customer.company_name 
 			batteries = building.batteries.count
 			battery_ids = building.battery_ids
 			columns = Column.where(battery_id: battery_ids).count
 			column_ids = Column.where(battery_id: building.battery_ids).ids
 			elevators = Elevator.where(column_id: column_ids).count
 			contact = building.customer.full_name_service_person
-			#number_of_floors = building.batteries.columns.number_of_floors
 
 				building.batteries.all.each do |battery|
 					number_of_floors = battery.columns.first.number_of_floors
@@ -52,7 +51,6 @@ class PagesController < ApplicationController
 					address.longitude = lng
 					address.save!
 				end
-					# sleep(2)
 				end
 				unless address.longitude.nil?
 				@markers << {address: address.display_address, lat: address.latitude, lng: address.longitude, customer: customer, batteries: batteries, columns: columns, elevators: elevators, contact: contact, number_of_floors: number_of_floors }

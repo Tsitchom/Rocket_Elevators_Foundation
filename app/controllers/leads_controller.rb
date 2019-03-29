@@ -33,13 +33,15 @@ class LeadsController < ApplicationController
 
     #==================================== Zendesk API session =============================================# 
     # create a ticket when someone complete the contact us form
+
+    # send a personalized message if there is an attachment or not
     if @lead.attachment != nil
       message = "The Contact uploaded an attachment"
     else 
       message = "No file attachment"
     end
 
-
+    # create a personalized ticket 
     ZendeskAPI::Ticket.create!($client, 
       :subject => "#{@lead.full_name} from #{@lead.company_name}", 
       :comment => { :value => "The contact #{@lead.full_name} from company #{@lead.company_name} can be reached at email #{@lead.email} and at phone number #{@lead.phone_number}. #{@lead.department_in_charge} has a project named #{@lead.project_name} which would require contribution from Rocket Elevators. 
@@ -50,12 +52,7 @@ class LeadsController < ApplicationController
       :type => "question",
       :priority => "urgent")
     #==================================== END Zendesk API session =========================================# 
- 
-    # @customer = Customer.find_by company_name: params[:lead][:company_name]
-    
-    # if @customer != nil
-    #     @lead.customer_id = @customer.id
-    # else @lead.customer_id = nil
+      
       respond_to do |format|
         if @lead.save
           sendgrid(@lead)
@@ -69,8 +66,6 @@ class LeadsController < ApplicationController
     # end
   end
 
-  # PATCH/PUT /leads/1
-  # PATCH/PUT /leads/1.json
   def update
     respond_to do |format|
       if @lead.update(lead_params)
@@ -105,7 +100,7 @@ class LeadsController < ApplicationController
   end
 
   #==================================== sendgrid API session =============================================# 
-  # send an email to the person who complete the contact us form
+  # send an email to the person who complete the contact us form using the sendgrid template
   def sendgrid(lead)
     data = JSON.parse("{
       \"personalizations\": [
