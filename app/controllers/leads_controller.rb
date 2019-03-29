@@ -51,11 +51,11 @@ class LeadsController < ApplicationController
       :priority => "urgent")
     #==================================== END Zendesk API session =========================================# 
  
-    @customer = Customer.find_by company_name: params[:lead][:company_name]
+    # @customer = Customer.find_by company_name: params[:lead][:company_name]
     
-    if @customer != nil
-        @lead.customer_id = @customer.id
-    else @lead.customer_id = nil
+    # if @customer != nil
+    #     @lead.customer_id = @customer.id
+    # else @lead.customer_id = nil
       respond_to do |format|
         if @lead.save
           sendgrid(@lead)
@@ -66,7 +66,7 @@ class LeadsController < ApplicationController
           format.json { render json: @lead.errors, status: :unprocessable_entity }
         end
       end
-    end
+    # end
   end
 
   # PATCH/PUT /leads/1
