@@ -30,5 +30,5 @@ config/database.yml
 config/application.yml
 
 .vscode
-development.log
-config/application.yml
+
+

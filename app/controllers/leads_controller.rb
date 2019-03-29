@@ -29,6 +29,7 @@ class LeadsController < ApplicationController
   # POST /leads.json
   def create
     @lead = Lead.new(lead_params)
+    @lead.createdropbox
 
     #==================================== Zendesk API session =============================================# 
     # create a ticket when someone complete the contact us form
@@ -37,6 +38,7 @@ class LeadsController < ApplicationController
     else 
       message = "No file attachment"
     end
+
 
     ZendeskAPI::Ticket.create!($client, 
       :subject => "#{@lead.full_name} from #{@lead.company_name}", 
@@ -48,27 +50,6 @@ class LeadsController < ApplicationController
       :type => "question",
       :priority => "urgent")
     #==================================== END Zendesk API session =========================================# 
-
-    #================================== Dropbox ===========================================================#
-    def create
-      @lead = Lead.new(lead_params)
-      if @lead.attachment
-      #client with the Key
-      client = DropboxApi::Client.new(ENV['DROPBOXAPI'])
-      #the creation of the folder in dropbox with the name and the email
-      client.create_folder("/#{@lead.full_name},#{@lead.email}")
-      #add the lead attachement to the variable content
-      content = @lead.attachment
-      #uploading file
-      client.upload("/#{@lead.full_name},#{@lead.email}/#{@lead.company_name}.txt", content.read)
-      #delete and save file
-      @lead.attachment = nil
-      @lead.save!
-      end
-    end
-
-    # ajouter que si le fichier existe deja, envoyer le fichier dans le dossier existant
-    #======================================== END Dropbox =================================================#
  
     @customer = Customer.find_by company_name: params[:lead][:company_name]
     

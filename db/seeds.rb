@@ -62,7 +62,6 @@ csv.each do |row|
     t.full_name_service_person = row['full_name_service_person']
     t.phone_number_service_person = row['phone_number_service_person']
     t.email_service_person = row['email_service_person']
-    t.token= row['token']
     t.save!
 
 end

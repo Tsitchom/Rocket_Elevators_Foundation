@@ -8,7 +8,7 @@
 
 #     puts "salut"
 
-#     client = DropboxApi::Client.new("qaWo1RJdDUAAAAAAAAAAblOLS-uRfkaFOB6JVDuyhI8QLU2AyyT3eAnBsJOYltQT")
+#     client = DropboxApi::Client.new("")
 
 #     result = client.list_folder "/dropbox_folder"
 
