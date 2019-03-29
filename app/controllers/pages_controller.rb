@@ -44,13 +44,14 @@ class PagesController < ApplicationController
 			pp address
 			pp  @response
 
-
-				lat = @response["results"][0]["geometry"]["location"]["lat"]
-				lng = @response["results"][0]["geometry"]["location"]["lng"]
+			    if @response["results"]
+					lat = @response["results"][0]["geometry"]["location"]["lat"]
+					lng = @response["results"][0]["geometry"]["location"]["lng"]
 				
 					address.latitude = lat
 					address.longitude = lng
 					address.save!
+				end
 					# sleep(2)
 				end
 			

@@ -28,5 +28,5 @@ set :environment, "development"
 every 2.minutes do
     #script "pg_connection.rake"
     # rake "pg_connection"
-    rake "export:datawarehouse"
+    # rake "export:datawarehouse"
 end
