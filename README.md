@@ -1,4 +1,4 @@
-**WEEK 7 : APIs ---- http://raphaelvallee.com ** Lien youtube : https://www.youtube.com/watch?v=-kiiY7i1NOU
+**WEEK 7 : APIs ---- http://raphaelvallee.com ** Youtube link : https://www.youtube.com/watch?v=-kiiY7i1NOU
 
 1) Google Maps API :
 The Google Maps API can be accessed through the "GEOLOCATIONS" menu on the top of raphaelvallee.com. Although the Codeboxx file mentionned to put it in the admin panel, we were told from Philippe it was also okay to put it on the main page, which we did. The user has to be authenticated first. You can use the user email "philippe.bouillon@codeboxx.biz" with the following password : "123456". Then, you will be able to access the Google Maps API with all the markers on the map on which you can click to see the Info Window that tells the following info: localization of the building (its address), number of floors, the customer's name, the number of batteries, columns and elevators and the full name of the tech contact. 
