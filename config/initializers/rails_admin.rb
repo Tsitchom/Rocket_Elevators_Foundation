@@ -23,6 +23,9 @@ RailsAdmin.config do |config|
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
+config.model 'ApiRest' do
+  visible false
+end
 
   config.model 'Intervention' do
     navigation_icon 'icon-wrench'
@@ -59,6 +62,10 @@ RailsAdmin.config do |config|
       end
     end
   end
+
+  config.navigation_static_links = {
+   'ApiRest' => '/api_rest'
+  }
 
   config.model 'Geolocation' do
     visible false
