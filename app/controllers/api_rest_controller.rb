@@ -1,0 +1,2 @@
+class ApiRestController < ApplicationController
+end

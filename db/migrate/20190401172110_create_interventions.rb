@@ -1,7 +1,6 @@
 class CreateInterventions < ActiveRecord::Migration[5.2]
   def change
-    create_table :interventions, :id => false do |t|
-        t.integer :id 
+    create_table :interventions do |t|
         t.belongs_to :user, index: true, foreign_key: {on_delete: :cascade, on_update: :cascade}, null: false
         t.belongs_to :building, index: true, foreign_key: {on_delete: :cascade, on_update: :cascade}, null: false
         t.belongs_to :battery, index: true, foreign_key: {on_delete: :cascade, on_update: :cascade}, optional: true

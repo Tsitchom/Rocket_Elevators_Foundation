@@ -1,0 +1,319 @@
+<!-- SLIDE TOP -->
+<div id="slidetop">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <h6><i class="icon-heart"></i> WHY ROCKET ELEVATORS ?</h6>
+                <p>We are number one in construction of elevator in North America and second in Europe. We have the most efficient workers and our values are the customer service, fidelity and respect. Contact us and we guarantee that you will completely satisfy.
+
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <h6><i class="icon-envelope"></i> CONTACT INFO</h6>
+                <ul class="list-unstyled">
+                    <li><b>Address:</b> 725 Boulevard Lebourgneuf <br /> Quebec, G2J 0C4, Canada</li>
+                    <li><b>Phone:</b> 1-800-565-2390</li>
+                    <li><b>Email:</b> <a href="mailto:support@yourname.com">support@codeboxx.com</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <a class="slidetop-toggle" href="#">
+        <!-- toggle button --></a>
+
+</div>
+<!-- /SLIDE TOP -->
+
+
+<!-- wrapper -->
+<div id="wrapper">
+
+    <div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+
+        <!-- TOP NAV -->
+        <header id="topNav">
+            <div class="container">
+
+                <!-- Mobile Menu Button -->
+                <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <!-- Logo -->
+
+                <a class="logo float-left scrollTo" href="#top">
+                    <img src="assets/R2.png" alt="" />
+                </a>
+
+                <!-- 
+							Top Nav 
+							
+							AVAILABLE CLASSES:
+							submenu-dark = dark sub menu
+						-->
+                <div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
+                    <nav class="nav-main">
+
+                        <!-- 
+									.nav-onepage
+									Required for onepage navigation links
+									
+									Add .external for an external link!
+								-->
+                        <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+                            <li>
+                              <a href="index.html">HOME</a>
+                            </li>
+                            <li>
+                                <!-- SERVICES -->
+                                <a class="dropdown-toogle">
+                                    SERVICES
+                                </a>
+                                <ul class="dropdown-menu resp-active">
+                                    <li>
+                                        <%=link_to "", '/residential', :method => :get %><a href="residential.html">Residential</a>
+                                    </li>
+                                    <li>
+                                        <%=link_to "", '/commercial', :method => :get %> <a href="commercial.html">Commercial</a>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            <li>
+                                <!-- WORK -->
+                                <a href="/index.html#work">
+                                    PORTFOLIO
+                                </a>
+                            </li>
+                            <li>
+                                <!-- NEWS -->
+                                <a href="/index.html#news">
+                                    NEWS
+                                </a>
+                            </li>
+                            <li>
+                                <!-- OVERVIEW -->
+                                <a href="/index.html#contact">
+                                    CONTACT
+                                </a>
+                            </li>
+                            <li>
+                                <!-- CLIENTS -->
+                                <a href="/index.html#clients">
+                                    CLIENTS
+                                </a>
+                            </li>
+                            <%=link_to "", '/emp-dashboard', :method => :get %>
+                            <li>
+                                <!-- EMPLOYEES -->
+                                <a href="/emp-dashboard">
+                                    EMPLOYEES
+                                </a>
+                            </li>
+                            <%=link_to "", '/stats', :method => :get %>
+                            <li>
+                                <!-- STATS -->
+                                <a href="stats">
+                                    STATS
+                                </a>
+                            </li>
+                            <%=link_to "", '/mapsAPI', :method => :get %>
+                            <li>
+                                <!-- STATS -->
+                                <a href="/mapsAPI">
+                                    GEOLOCATIONS
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </header>
+        <!-- /Top Nav -->
+
+    </div>
+
+
+<!-- /HEADER -->
+
+			<section class="page-header page-header-xs mt-60">
+				<div class="container">
+
+					<h1>My Session</h1>
+
+					<%=current_user.first_name + " " + current_user.last_name%>
+
+
+				</div>
+			</section>
+			<!-- /PAGE HEADER -->
+		<!-- wrapper -->
+		<div id="wrapper">
+
+
+			<!-- CONTENT -->
+			<section>
+				<div class="container">
+
+
+					<div class="clearfix">
+
+						<div class="side-nav side-nav-custom float-left mt-0">
+
+							<div class="side-nav-head">
+								<button class="fa fa-bars"><!-- mobile button --></button>
+								<h4>NAVIGATION</h4>
+							</div>
+
+							<ul class="list-group list-unstyled mb-0">
+								<li class="list-group-item"><a href="pack-megashop-account-wishlist.html">Battery</a></li>
+								<li class="list-group-item active"><a href="pack-megashop-account-orders.html">My Orders</a></li>
+								<li class="list-group-item"><a href="pack-megashop-account-settings.html">My Settings</a></li>
+								<li class="list-group-item"><a href="#">Log Out</a></li>
+							</ul>
+
+						</div>
+
+
+						<div class="side-custom-content float-left mt-0">
+						
+							<h2 class="fs-16 font-regular mb-20 mt-6">
+								<i class="fa fa-bar-chart-o mr-10"></i> MY ORDERS 
+								<span class="text-muted">(4)</span>
+							</h2>
+
+
+							<div class="table-responsive">
+
+								<table class="table table-hover fs-16 fw-400">
+									<thead class="fs-14">
+										<tr>
+											<th class="w-100 fw-600">ID</th>
+											<th class="fw-600">DATE</th>
+											<th class="w-200 fw-600">STATUS</th>
+											<th class="w-150 fw-600 text-center">PRODUCTS</th>
+											<th class="w-150 fw-600 text-center">TOTAL</th>
+											<th class="w-150 fw-600 text-center"></th>
+										</tr>
+									</thead>
+
+									<tbody class="fs-14">
+										<tr>
+											<td>4155</td>
+											<td>Mon, Jun 5, 2017 / 11:05</td>
+											<td class="text-warning">PROCESSING</td>
+											<td class="text-center">3</td>
+											<td class="text-center fw-400 fs-18">$88.99</td>
+											<td class="text-center">
+												<a href="pack-megashop-account-invoice.html" class="btn btn-flat btn-v1 btn-sm"><i class="fa fa-eye m-0 p-3"></i></a>
+											</td>
+										</tr>
+										<tr>
+											<td>3122</td>
+											<td>Wed, Apr 24, 2017 / 11:05</td>
+											<td class="text-success">DELIVERED</td>
+											<td class="text-center">8</td>
+											<td class="text-center fw-400 fs-18">$690.44</td>
+											<td class="text-center">
+												<a href="pack-megashop-account-invoice.html" class="btn btn-flat btn-v1 btn-sm"><i class="fa fa-eye m-0 p-3"></i></a>
+											</td>
+										</tr>
+										<tr>
+											<td>2354</td>
+											<td>Tue, Feb 3, 2017 / 09:44</td>
+											<td class="text-muted">
+												CANCELED
+												<small class="block fs-12 fw-200">by request</small>
+											</td>
+											<td class="text-center">3</td>
+											<td class="text-center fw-400 fs-18">$188.65</td>
+											<td class="text-center">
+												<a href="pack-megashop-account-invoice.html" class="btn btn-flat btn-v1 btn-sm"><i class="fa fa-eye m-0 p-3"></i></a>
+											</td>
+										</tr>
+										<tr>
+											<td>3122</td>
+											<td>Wed, Apr 24, 2017 / 11:05</td>
+											<td class="text-danger">
+												REJECTED
+												<small class="block fs-12 fw-200">Invalid Credit Card</small>
+											</td>
+											<td class="text-center">2</td>
+											<td class="text-center fw-400 fs-18">$243.22</td>
+											<td class="text-center">
+												<a href="pack-megashop-account-invoice.html" class="btn btn-flat btn-v1 btn-sm"><i class="fa fa-eye m-0 p-3"></i></a>
+											</td>
+										</tr>
+									</tbody>
+
+								</table>
+
+							</div>
+
+		
+							<div class="alert alert-light b-0">
+								Sorry, you have no orders!
+							</div>
+
+
+						</div>
+
+					</div>
+
+
+				</div>
+			</section>
+			<!-- /CONTENT -->
+
+
+		</div>
+		<!-- /wrapper -->
+<!-- FOOTER -->
+
+      <footer id="footer">
+					<div class="container">
+	
+	
+						<div class="row">
+	
+							<!-- col #1 -->
+							<div class="col-md-8">
+	
+								<h3 class="letter-spacing-1">WHY ROCKET ELEVATORS ?</h3>
+	
+								<!-- Small Description -->
+								<p>
+									We are number one in construction of elevator in North America and second in Europe. We have the most efficient workers and our values are the customer service, 
+									fidelity and respect. Contact us and we guarantee that you will completely satisfy. 
+								</p>
+								<h2>1-800-555-1234</h2>
+							</div>
+							<!-- /col #1 -->
+	
+						</div>
+	
+					</div>
+	
+					<div class="copyright">
+						<div class="container">
+							&copy; All Rights Reserved, Rocket Elevators
+						</div>
+					</div>
+	
+				</footer>
+			<!-- /FOOTER -->
+
+		</div>
+		<!-- /wrapper -->
+
+
+		<!-- SCROLL TO TOP -->
+		<a href="#" id="toTop"></a>
