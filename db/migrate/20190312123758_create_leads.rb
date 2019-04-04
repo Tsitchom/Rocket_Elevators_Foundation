@@ -11,7 +11,8 @@ class CreateLeads < ActiveRecord::Migration[5.2]
       t.string :department_in_charge
       t.text :message
       t.binary :attachment
-      t.timestamps
+      t.datetime :created_at
+      t.datetime :updated_at
     end
   end
 end
