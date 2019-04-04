@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_120907) do
+ActiveRecord::Schema.define(version: 2019_04_01_172110) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "address_type"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_120907) do
     t.bigint "building_id", null: false
     t.bigint "user_id"
     t.string "building_type", null: false
-    t.string "status"
+    t.integer "battery_status"
     t.date "date_of_install"
     t.date "date_of_inspect"
     t.integer "inspect_certificate"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_120907) do
     t.bigint "battery_id", null: false
     t.string "building_type", null: false
     t.integer "number_of_floors", null: false
-    t.string "status"
+    t.integer "column_status"
     t.text "information"
     t.text "notes"
     t.index ["battery_id"], name: "index_columns_on_battery_id"
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_120907) do
     t.string "serial_number", null: false
     t.string "model_type", null: false
     t.string "building_type", null: false
-    t.string "status"
+    t.integer "elevator_status"
     t.date "date_of_install"
     t.date "date_of_inspect"
     t.string "inspect_certificate"
@@ -110,6 +110,27 @@ ActiveRecord::Schema.define(version: 2019_03_28_120907) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "interventions", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "id"
+    t.bigint "user_id", null: false
+    t.bigint "building_id", null: false
+    t.bigint "battery_id"
+    t.bigint "column_id"
+    t.bigint "elevator_id"
+    t.datetime "intervention_start"
+    t.datetime "intervention_finish"
+    t.integer "intervention_result"
+    t.text "report"
+    t.integer "intervention_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["battery_id"], name: "index_interventions_on_battery_id"
+    t.index ["building_id"], name: "index_interventions_on_building_id"
+    t.index ["column_id"], name: "index_interventions_on_column_id"
+    t.index ["elevator_id"], name: "index_interventions_on_elevator_id"
+    t.index ["user_id"], name: "index_interventions_on_user_id"
+  end
+
   create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "customer_id"
     t.string "full_name"
@@ -121,8 +142,8 @@ ActiveRecord::Schema.define(version: 2019_03_28_120907) do
     t.string "department_in_charge"
     t.text "message"
     t.binary "attachment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["customer_id"], name: "index_leads_on_customer_id"
   end
 
@@ -176,5 +197,10 @@ ActiveRecord::Schema.define(version: 2019_03_28_120907) do
   add_foreign_key "customers", "addresses", on_update: :cascade, on_delete: :cascade
   add_foreign_key "customers", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "elevators", "columns", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "interventions", "batteries", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "interventions", "buildings", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "interventions", "columns", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "interventions", "elevators", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "interventions", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "leads", "customers", on_update: :cascade, on_delete: :cascade
 end

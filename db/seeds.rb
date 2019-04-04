@@ -110,7 +110,7 @@ csv.each do |row|
     t.building_id = row['building_id']
     t.user_id = row['user_id']
     t.building_type = row['building_type']
-    t.status = row['status']
+    t.battery_status = row['battery_status']
     t.date_of_install = row['date_of_install']
     t.date_of_inspect = row['date_of_inspect']
     t.inspect_certificate = row['inspect_certificate']
@@ -130,7 +130,7 @@ csv.each do |row|
     t.battery_id = row['battery_id']
     t.building_type = row['building_type']
     t.number_of_floors = row['number_of_floors']
-    t.status = row['status']
+    t.column_status = row['column_status']
     t.information = row['information']
     t.notes = row['notes']
     t.save!
@@ -148,7 +148,7 @@ csv.each do |row|
     t.serial_number = row['serial_number']
     t.model_type = row['model_type']
     t.building_type = row['building_type']
-    t.status = row['status']
+    t.elevator_status = row['elevator_status']
     t.date_of_install = row['date_of_install']
     t.date_of_inspect = row['date_of_inspect']
     t.inspect_certificate = row['inspect_certificate']
@@ -202,7 +202,30 @@ end
     t.department_in_charge = row['department_in_charge']
     t.message = row['message']
     t.attachment = row['attachment']
+    t.created_at = row['created_at']
+    t.updated_at = row['updated_at']
     t.save!
 
 end
 
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'intervention.csv'))
+csv = CSV.parse(csv_text, col_sep: ",", :headers => true)
+csv.each do |row|
+   
+   row = row.to_hash
+   p row
+   t = Intervention.new
+   t.id = row['id']
+   t.user_id = row['user_id']
+   t.building_id = row['building_id']
+   t.battery_id = row['battery_id']
+   t.column_id = row['column_id']
+   t.elevator_id = row['elevator_id']
+   t.intervention_start = row['intervention_start']
+   t.intervention_finish = row['intervention_finish']
+   t.intervention_result = row['intervention_result']
+   t.report = row['report']
+   t.intervention_status = row['intervention_status']
+   t.save!
+
+end
