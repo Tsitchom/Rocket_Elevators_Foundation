@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
-  	before_action :authenticate_user!, only: [:mapsAPI]
+		before_action :authenticate_user!, only: [:mapsAPI]
+		before_action :authenticate_user!, only: [:intervention]
 	
 	def index
 		@lead = Lead.new

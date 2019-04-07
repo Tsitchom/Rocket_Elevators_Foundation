@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   
   get '/mapsAPI', to: 'pages#mapsAPI'
   get '/emp-dashboard/geolocation', to: 'pages#mapsAPI' 
+
+  get '/intervention', to: 'pages#intervention'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'pages#index'
 
