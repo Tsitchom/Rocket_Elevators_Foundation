@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_182539) do
     t.bigint "building_id", null: false
     t.bigint "user_id"
     t.string "building_type", null: false
-    t.integer "battery_status"
+    t.string "status"
     t.date "date_of_install"
     t.date "date_of_inspect"
     t.integer "inspect_certificate"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_182539) do
     t.bigint "battery_id", null: false
     t.string "building_type", null: false
     t.integer "number_of_floors", null: false
-    t.integer "column_status"
+    t.string "status"
     t.text "information"
     t.text "notes"
     t.index ["battery_id"], name: "index_columns_on_battery_id"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_182539) do
     t.string "serial_number", null: false
     t.string "model_type", null: false
     t.string "building_type", null: false
-    t.integer "elevator_status"
+    t.string "status"
     t.date "date_of_install"
     t.date "date_of_inspect"
     t.string "inspect_certificate"
@@ -146,8 +146,8 @@ ActiveRecord::Schema.define(version: 2019_04_04_182539) do
     t.string "department_in_charge"
     t.text "message"
     t.binary "attachment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_leads_on_customer_id"
   end
 
