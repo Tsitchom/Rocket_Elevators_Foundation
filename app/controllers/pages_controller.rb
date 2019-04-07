@@ -13,7 +13,10 @@ class PagesController < ApplicationController
 
 	def residential
 	end
-
+	
+	def intervention
+		@quote = Quote.new
+	end
 	# The method in which the GEOLOCATION part of the website is managed : the geocoding of the addresses are put in an array and sent in the mapsAPI page from #pages
 	def mapsAPI
 		@buildings = Building.all
