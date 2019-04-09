@@ -1,4 +1,4 @@
-<%= form_with(model: @quote, local: true) do |form| %>    
+<%= form_with(model: @intervention, local: true) do |form| %>    
     
     <!-- SLIDE TOP -->
 
@@ -248,120 +248,68 @@
                         <action="php/contact.php" method="post" enctype="multipart/form-data">
                             <fieldset>
                                 <input type="hidden" name="action" value="contact_send" />
-                                
-                            <div class="row">
-                                <div class="col-md-4">
-                                        <%= form.label :customer %>
-                                        <%= form.select :department, [['-', '-'], ['Residential','Residential'], ['Commercial','Commercial'], ['Corporate','Corporate'], ['Hybrid','Hybrid']] %>
-                                    </div>
-                                </div>
+
                             
-                            <div class="row">
-                                <div class="row-1">
-                                    
-                                        <div class="col-md-4">
-                                            <%= form.label :number_of_apartments %>
-                                            <%= form.text_field :number_of_apartments, class: 'form-control-1', name:'quote[resi_number_of_apartments]', id: 'resi-app'%>
-                                            </div>
-                                        <div class="col-md-4">
-                                            <%= form.label :number_of_floors %>
-                                            <%= form.text_field :number_of_floors, class: 'form-control-1', name:'quote[resi_number_of_floors]', id: 'resi-floor' %>
-                                        </div>
-                                            <div class="col-md-4">
-                                            <%= form.label :number_of_basements %>
-                                            <%= form.text_field :number_of_basements, class: 'form-control-1', name:'quote[resi_number_of_basements]', id: 'resi-quar'  %>
-                                            </div>
-                              
-                                </div>
-                                <div class="row-2">
-                                        <div class="col-md-4">
-                                            <%= form.label :number_of_elevators %>
-                                            <%= form.text_field :number_of_elevators, class: 'form-control-4', name:'quote[number_of_elevators]', id: 'com-asce' %>
-                                            </div>
-                                        <div class="col-md-4">
-                                            <%= form.label :number_of_apartments %>
-                                            <%= form.text_field :number_of_apartments, class: 'form-control-4', name:'quote[comm_number_of_apartments]', id: 'com-app'  %>
-                                        </div>
-                                            <div class="col-md-4">
-                                            <%= form.label :number_of_parking %>
-                                            <%= form.text_field :number_of_parking, class: 'form-control-4', name:'quote[comm_number_of_parking]', id: 'com-space'  %>
-                                            </div>
-                                        <div class="col-md-4">
-                                            <%= form.label :number_of_basements %>
-                                            <%= form.text_field :number_of_basements, class: 'form-control-4', name:'quote[comm_number_of_basements]', id: 'com-quar'  %>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <%= form.label :number_of_stores %>
-                                            <%= form.text_field :number_of_stores, class: 'form-control-4', name:'quote[comm_number_of_stores]', id: 'com-com'  %>
-                                            </div>
-                        
-                                                
-                                </div>
-
-                                <div class="row-3">
-                                        <div class="col-md-4">
-                                            <%= form.label :number_of_floors %>
-                                            <%= form.text_field :number_of_floors, class: 'form-control-2', name:'quote[corp_number_of_floors]', id: 'cor-floor' %>
-                                            </div>
-                                        <div class="col-md-4">
-                                            <%= form.label :number_of_basements %>
-                                            <%= form.text_field :number_of_basements, class: 'form-control-2', name:'quote[corp_number_of_basements]', id: 'cor-quar'  %>
-                                        </div>
-                                            <div class="col-md-4">
-                                            <%= form.label :max_occupancy_per_floor %>
-                                            <%= form.text_field :max_occupancy_per_floor, class: 'form-control-2', name:'quote[corp_max_occupancy_per_floor]', id: 'cor-occu' %>
-                                         </div>
-                                            <div class="col-md-4">
-                                                <%= form.label :number_of_stores %>
-                                                <%= form.text_field :number_of_stores, class: 'form-control-2', name:'quote[corp_number_of_stores]', id: 'cor-com' %>
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <%= form.label :number_of_parking %>
-                                                <%= form.text_field :number_of_parking, class: 'form-control-2', name:'quote[corp_number_of_parking]', id: 'cor-space'  %>
-                                            </div>
-
-                                </div>
-                                <div class="row-4">
-                                        <div class="col-md-4">
-                                            <%= form.label :number_of_floors %>
-                                            <%= form.text_field :number_of_floors, class: 'form-control-3', name:'quote[hyb_number_of_floors]', id: 'hyb-floor' %>
-                                            </div>
-                                        <div class="col-md-4">
-                                            <%= form.label :number_of_basements %>
-                                            <%= form.text_field :number_of_basements, class: 'form-control-3', name:'quote[hyb_number_of_basements]', id: 'hyb-quar'  %>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <%= form.label :max_occupancy_per_floor %>
-                                            <%= form.text_field :max_occupancy_per_floor, class: 'form-control-3', name:'quote[hyb_max_occupancy_per_floor]', id: 'hyb-occu'%>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <%= form.label :number_of_parking %>
-                                            <%= form.text_field :number_of_parking, class: 'form-control-3', name:'quote[hyb_number_of_parking]', id: 'hyb-space'  %>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <%= form.label :number_of_stores %>
-                                            <%= form.text_field :number_of_stores, class: 'form-control-3', name:'quote[hyb_number_of_stores]', id: 'hyb-com' %>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <%= form.label :hour_of_activity %>
-                                            <%= form.text_field :hour_of_activity, class: 'form-control-3', name:'quote[hour_of_activity]', id: 'hyb-hour'  %>
-                                        </div>
-                                    
-                                </div>
                         <%# Employee drop down menu %>
                         <div class="row">
                                 <div class="col-md-4">
                                         <%= form.label :employee %>
-                                        <%= form.select :department, [['-', '-'], ['Residential','Residential'], ['Commercial','Commercial'], ['Corporate','Corporate'], ['Hybrid','Hybrid']] %>
+                                        <%= form.select :employee, options_from_collection_for_select(User.all, "id", "first_name", "last_name"), include_blank: "-Employee-" %>
                                     </div>
                                 </div>
 
+
+                            <%# Customers drop down menu  %>  
+                            <div class="row">
+                                <div class="col-md-4">
+                                        <%= form.label :customer %>
+                                        <%# <%= form.select :customer, options_from_collection_for_select(Customer.all, "id", "company_name"), include_blank: "-Select customer-" %> 
+                                        <%= form.select(:customer, Customer.all.collect {|p| [p.company_name, p.id]},  {prompt: "Select"}, {class: 'form-control'}) %>
+                                    </div>
+                                </div>
+                            
+                            <%# Buildings drop down menu  %>        
+                            <div class="building-class">
+                                <div class="col-md-4">
+                                        <%= form.label :building %>
+                                        <%# <%= form.select :building, options_from_collection_for_select(Building.all, "id", "id"), include_blank: "-Building id-" %> 
+                                        <%= form.select(:building, Building.all.collect {|t| [t.id, t.customer_id ]}, {prompt: "id"},  {class: 'form-control'}) %>
+                                    </div>
+                                </div>
+
+                             <%# Batteries drop down menu  %>        
+                            <div class="battery-class">
+                                <div class="col-md-4">
+                                        <%= form.label :battery %>
+                                        <%# <%= form.select :battery, options_from_collection_for_select(Battery.all, "id", "id"), include_blank: "-id-" %>
+                                        <%= form.select(:battery, Battery.all.collect {|b| [b.id, b.building_id ]}, {prompt: "id"}, {class: 'form-control'}) %>
+                                    </div>
+                                </div>
+                            
+                             <%# Columns drop down menu  %>        
+                            <div class="column-class">
+                                <div class="col-md-4">
+                                        <%= form.label :column %>
+                                        <%# <%= form.select :column, options_from_collection_for_select(Column.all, "id", "id"), include_blank: "-id-" %>
+                                        <%= form.select(:column, Column.all.collect {|c| [c.id, c.battery_id ]}, {prompt: "id"}, {class: 'form-control'}) %>
+                                    </div>
+                                </div>
+
+                             <%# Elevators drop down menu  %>        
+                            <div class="elevator-class">
+                                <div class="col-md-4">
+                                        <%= form.label :elevator %>
+                                        <%# <%= form.select :elevator, options_from_collection_for_select(Elevator.all, "id", "id"), include_blank: "-id-" %> 
+                                        <%= form.select(:elevator, Elevator.all.collect {|e| [e.id, e.column_id ]}, {prompt: "id"}, {class: 'form-control'}) %>
+                                    </div>
+                                </div>
+
+                
+
                         <%# Description field to submit intervention %>
                         <div class="col-md-12">
-                                <%= form.label :description %>
-                                <%= form.text_area :project_description, class: 'form-control', rows: '6' %>
+                                <%= form.label :report %>
+                                <%= form.text_area :report, class: 'form-control', rows: '6' %>
                             </div>
                         </div>
                                     
@@ -484,7 +432,7 @@
         <!-- /FOOTER -->
         
     </div>
-    <%=javascript_include_tag "contact" %>
+    <%=javascript_include_tag "intervention" %>
     <!-- /wrapper -->
 
 

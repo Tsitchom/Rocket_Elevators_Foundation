@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :leads
   resources :quotes
   
+  
   get '/gform', to: 'pages#gform'
   get '/residential', to: 'pages#residential'
   get '/commercial', to: 'pages#commercial'
@@ -43,8 +44,20 @@ Rails.application.routes.draw do
   get '/mapsAPI', to: 'pages#mapsAPI'
   get '/emp-dashboard/geolocation', to: 'pages#mapsAPI' 
 
-  get '/intervention', to: 'pages#intervention'
-  get '/intervention2', to: 'pages#intervention2'
+  #get '/intervention', to: 'interventions#index'
+  #get '/interventions/get_building', as: '/get_building'
+  #get '/interventions/get_battery', as: '/get_battery'
+  #get '/interventions/get_column', as: '/get_column'
+  #get '/interventions/get_elevator', as: '/get_elevator'
+  
+  resources :interventions do
+    get :get_building, on: :collection
+    get :get_battery, on: :collection
+    get :get_column, on: :collection
+    get :get_elevator, on: :collection
+  end
+
+  # get '/intervention2', to: 'pages#intervention2'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'pages#index'
 

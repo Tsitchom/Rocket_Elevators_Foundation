@@ -216,10 +216,12 @@ csv.each do |row|
    p row
    t = Intervention.new
    t.user_id = row['user_id']
+   t.customer_id = row['customer_id']
    t.building_id = row['building_id']
    t.battery_id = row['battery_id']
    t.column_id = row['column_id']
    t.elevator_id = row['elevator_id']
+   t.employee_id = row['employee_id']
    t.intervention_start = row['intervention_start']
    t.intervention_finish = row['intervention_finish']
    t.intervention_result = row['intervention_result']
