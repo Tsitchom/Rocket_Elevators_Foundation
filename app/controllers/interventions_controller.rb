@@ -108,19 +108,18 @@ class InterventionsController < ApplicationController
     # POST /quotes.json
     def create
   
-      @intervention = Intervention.new(intervention_params)
 
       #==================================== Zendesk API session =============================================#  
       # create a personalized ticket 
-      ZendeskAPI::Ticket.create!($client, 
-        :subject => "#{@intervention.full_name} from #{@intervention.company_name}", 
-        :comment => { :value => "The contact #{@intervention.full_name} from company #{@intervention.company_name} can be reached at email #{@intervention.email} and at phone number #{@lead.phone_number}. #{@intervention.department_in_charge} has a project named #{@intervention.project_name} which would require contribution from Rocket Elevators. 
-        #{@intervention.project_description} 
-        Attached Message: #{@intervention.message} 
-        #{message}"}, 
-        :submitter_id => @intervention.id,
-        :type => "support",
-        :priority => "urgent")
+      # ZendeskAPI::Ticket.create!($client, 
+      #   :subject => "#{@intervention.full_name} from #{@intervention.company_name}", 
+      #   :comment => { :value => "The contact #{@intervention.full_name} from company #{@intervention.company_name} can be reached at email #{@intervention.email} and at phone number #{@lead.phone_number}. #{@intervention.department_in_charge} has a project named #{@intervention.project_name} which would require contribution from Rocket Elevators. 
+      #   #{@intervention.project_description} 
+      #   Attached Message: #{@intervention.message} 
+      #   #{message}"}, 
+      #   :submitter_id => @intervention.id,
+      #   :type => "support",
+      #   :priority => "urgent")
     #==================================== END Zendesk API session =========================================#  
     
       #==================================== Zendesk API session =============================================#  
@@ -134,10 +133,18 @@ class InterventionsController < ApplicationController
     #     :priority => "urgent")
       #==================================== END Zendesk API session =========================================#  
       
-    #   if params[:quote][:department] == 'Residential'
-    #     @quote.number_of_apartments = params[:quote][:resi_number_of_apartments]
-    #     @quote.number_of_floors = params[:quote][:resi_number_of_floors]
-    #     @quote.number_of_basements = params[:quote][:resi_number_of_basements]
+      @intervention = Intervention.new(intervention_params)
+
+        @intervention.author = current_user.id
+        @intervention.employee_id = params[:employee]
+        @intervention.customer_id = params[:customer]
+        @intervention.building_id = params[:building]
+        @intervention.battery_id = params[:battery]
+        @intervention.column_id = params[:column]
+        @intervention.elevator_id = params[:elevator]
+        @intervention.intervention_result = "Incomplete"
+        @intervention.report = params[:report]
+        @intervention.intervention_status = "Pending"
       
     #   elsif params[:quote][:department] == 'Commercial' 
     #     @quote.number_of_apartments = params[:quote][:comm_number_of_apartments]
@@ -161,12 +168,15 @@ class InterventionsController < ApplicationController
     #   end
   
       respond_to do |format|
-        if @intervention.save
+        if @intervention.save!
           format.html { redirect_to "/interventions" }
           format.json { render :show, status: :created, location: @intervention }
+          p @intervention
+          p "coucou"
         else
           format.html { redirect_to "/interventions" }
           format.json { render json: @intervention.errors, status: :unprocessable_entity }
+          p "wo menute"
         end
       end
     end
@@ -204,7 +214,7 @@ class InterventionsController < ApplicationController
   
       # Never trust parameters from the scary internet, only allow the white list through.
       def intervention_params
-        params.require(:intervention).permit(:user_id, :customer_id, :building_id, :battery_id, :column_id, :elevator_id, :report)
+        params.permit( :employee_id, :customer_id, :building_id, :battery_id, :column_id, :elevator_id, :intervention_result, :report, :intervention_status)
       end
   end
   

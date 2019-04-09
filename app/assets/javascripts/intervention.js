@@ -38,8 +38,6 @@ $("#customer").change(function() {
             buildings[i]["customer_id"] +
             "</option>"
         );
-
-        console.log(buildings);
       }
     }
   });
@@ -75,8 +73,6 @@ $("#building").change(function() {
             batteries[i]["building_id"] +
             "</option>"
         );
-
-        console.log(batteries);
       }
     }
   });
@@ -112,8 +108,6 @@ $("#battery").change(function() {
             columns[i]["battery_id"] +
             "</option>"
         );
-
-        console.log(batteries);
       }
     }
   });
@@ -149,8 +143,6 @@ $("#column").change(function() {
             elevators[i]["id"] +
             "</option>"
         );
-
-        console.log(elevators);
       }
     }
   });
