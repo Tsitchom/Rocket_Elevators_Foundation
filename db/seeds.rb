@@ -215,7 +215,7 @@ csv.each do |row|
    row = row.to_hash
    p row
    t = Intervention.new
-   t.user_id = row['user_id']
+   t.author = row['author']
    t.customer_id = row['customer_id']
    t.building_id = row['building_id']
    t.battery_id = row['battery_id']

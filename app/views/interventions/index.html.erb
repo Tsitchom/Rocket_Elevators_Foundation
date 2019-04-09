@@ -254,7 +254,7 @@
                         <div class="row">
                                 <div class="col-md-4">
                                         <%= form.label :employee %>
-                                        <%= form.select :employee, options_from_collection_for_select(User.all, "id", "first_name", "last_name"), include_blank: "-Employee-" %>
+                                        <%= form.select :employee, options_from_collection_for_select(User.all, "id", "first_name", "last_name"), include_blank: "-None-" %>
                                     </div>
                                 </div>
 
@@ -308,7 +308,7 @@
 
                         <%# Description field to submit intervention %>
                         <div class="col-md-12">
-                                <%= form.label :report %>
+                                <%= form.label :description %>
                                 <%= form.text_area :report, class: 'form-control', rows: '6' %>
                             </div>
                         </div>

@@ -1,36 +1,36 @@
 user_id,building_id,battery_id,column_id,elevator_id,intervention_start,intervention_finish,intervention_result,report,intervention_status
-7,29,,29,29,2016-04-25 09:16:48,2016-04-25 17:16:48,Incompleted,Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.,InProgress
+7,29,,29,29,2016-04-25 09:16:48,2016-04-25 17:16:48,Incomplete,Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.,InProgress
 7,32,,,32,2016-05-20 05:28:51,2016-05-20 19:28:51,Success,"Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",Pending
-2,27,,,27,2016-06-08 02:15:07,,Incompleted,"Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",Interrupted
+2,27,,,27,2016-06-08 02:15:07,,Incomplete,"Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",Interrupted
 2,65,65,,,2016-08-06 06:09:41,2016-08-06 13:09:41,Failed,"Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",Completed
-2,29,,,29,2016-08-25 08:36:04,,Incompleted,"Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.",Resumed
+2,29,,,29,2016-08-25 08:36:04,,Incomplete,"Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.",Resumed
 2,60,60,,,2016-09-18 08:26:35,2016-09-18 16:26:35,Failed,"Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",Interrupted
 1,6,,6,,2016-09-24 07:24:43,2016-09-24 17:24:43,Failed,"Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",Resumed
 6,99,99,,,2016-11-05 08:54:51,2016-11-05 13:54:51,Failed,"Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.",Resumed
-7,29,,,29,2017-03-09 08:25:03,,Incompleted,Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.,Completed
+7,29,,,29,2017-03-09 08:25:03,,Incomplete,Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.,Completed
 1,24,,,24,2017-03-21 08:06:37,2017-03-21 15:06:37,Success,"Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",Resumed
-3,66,,,66,2017-04-21 13:57:41,2017-04-21 19:57:41,Incompleted,Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.,InProgress
+3,66,,,66,2017-04-21 13:57:41,2017-04-21 19:57:41,Incomplete,Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.,InProgress
 5,62,,62,62,2017-05-23 09:56:39,2017-05-23 16:56:39,Success,"Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.",Pending
 7,8,8,,,2017-07-29 06:28:24,2017-07-29 15:28:24,Failed,"Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",Pending
-1,61,,61,,2017-08-28 05:58:56,2017-08-28 18:58:56,Incompleted,"Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",Pending
-4,36,,36,36,2017-08-28 10:01:10,2017-08-28 18:01:10,Incompleted,Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.,Completed
+1,61,,61,,2017-08-28 05:58:56,2017-08-28 18:58:56,Incomplete,"Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",Pending
+4,36,,36,36,2017-08-28 10:01:10,2017-08-28 18:01:10,Incomplete,Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.,Completed
 3,81,,81,81,2017-09-24 07:01:26,2017-09-24 015:01:26,Success,Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.,InProgress
 1,21,,21,,2017-10-08 07:50:33,2017-10-08 16:50:33,Failed,"Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",InProgress
 5,94,,,,2017-10-26 12:06:07,,Failed,"Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",Resumed
 6,42,,42,42,2017-11-04 06:38:55,2018-01-26 21:29:31,Failed,"Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",InProgress
-5,94,94,,,2017-11-05 07:10:08,,Incompleted,Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.,Pending
-3,70,,70,,2017-11-28 09:19:58,,Incompleted,Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.,Completed
+5,94,94,,,2017-11-05 07:10:08,,Incomplete,Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.,Pending
+3,70,,70,,2017-11-28 09:19:58,,Incomplete,Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.,Completed
 3,58,,,58,2017-12-27 12:17:09,2017-12-27 19:17:09,Success,"Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",InProgress
 1,63,,,63,2018-01-16 12:48:49,2018-01-16 20:48:49,Failed,"Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.",InProgress
 2,57,57,,,2018-01-22 06:59:28,2018-01-22 18:59:28,Failed,Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.,Pending
 6,74,74,,,2018-02-08 08:04:18,2018-02-08 14:04:18,Success,"Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",Resumed
-4,81,81,,81,2018-03-25 06:37:17,2018-03-25 17:37:17,Incompleted,Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.,Resumed
-3,88,,,,2018-04-01 13:21:26,,Incompleted,Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.,Pending
+4,81,81,,81,2018-03-25 06:37:17,2018-03-25 17:37:17,Incomplete,Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.,Resumed
+3,88,,,,2018-04-01 13:21:26,,Incomplete,Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.,Pending
 4,42,42,,,2018-05-19 09:02:01,2018-05-19 20:02:01,Failed,In congue. Etiam justo. Etiam pretium iaculis justo.,InProgress
-2,10,10,,,2018-07-26 10:49:38,,Incompleted,Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.,Pending
-5,12,,12,12,2018-08-06 07:01:34,2018-11-05 0:09:41,Incompleted,"In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",Resumed
+2,10,10,,,2018-07-26 10:49:38,,Incomplete,Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.,Pending
+5,12,,12,12,2018-08-06 07:01:34,2018-11-05 0:09:41,Incomplete,"In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",Resumed
 4,32,,32,32,2018-08-15 11:20:51,2018-08-15 19:20:51,Failed,In congue. Etiam justo. Etiam pretium iaculis justo.,Interrupted
-6,1,1,,,2018-09-08 07:06:09,,Incompleted,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.",Pending
+6,1,1,,,2018-09-08 07:06:09,,Incomplete,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.",Pending
 3,40,,40,40,2018-09-30 06:43:11,2018-09-30 15:43:11,Success,"Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",InProgress
 4,47,,47,47,2018-10-06 08:55:26,2018-10-06 17:55:26,Success,"Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.",InProgress
 6,93,,93,93,2018-10-10 13:39:21,2018-02-06 05:58:05,Success,"Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.",Interrupted
