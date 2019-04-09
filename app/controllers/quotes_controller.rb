@@ -29,13 +29,13 @@ class QuotesController < ApplicationController
   
     #==================================== Zendesk API session =============================================#  
     # create a ticket when someone complete the quote form
-    ZendeskAPI::Ticket.create!($client, 
-      :subject => "#{@quote.full_name} from #{@quote.company_name}", 
-      :comment => { :value => "The contact #{@quote.full_name} from company #{@quote.company_name} ask for a quote for #{@quote.number_of_elevators} elevator(s). #{@quote.full_name} can be reached at email #{@quote.email} and at phone number #{@quote.phone_number}. #{@quote.department} has a project which would require contribution from Rocket Elevators. 
-      No file attached"}, 
-      :submitter_id => @quote.id,
-      :type => "question",
-      :priority => "urgent")
+    # ZendeskAPI::Ticket.create!($client, 
+    #   :subject => "#{@quote.full_name} from #{@quote.company_name}", 
+    #   :comment => { :value => "The contact #{@quote.full_name} from company #{@quote.company_name} ask for a quote for #{@quote.number_of_elevators} elevator(s). #{@quote.full_name} can be reached at email #{@quote.email} and at phone number #{@quote.phone_number}. #{@quote.department} has a project which would require contribution from Rocket Elevators. 
+    #   No file attached"}, 
+    #   :submitter_id => @quote.id,
+    #   :type => "question",
+    #   :priority => "urgent")
     #==================================== END Zendesk API session =========================================#  
     
     if params[:quote][:department] == 'Residential'

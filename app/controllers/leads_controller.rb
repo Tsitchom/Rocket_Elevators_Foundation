@@ -42,15 +42,15 @@ class LeadsController < ApplicationController
     end
 
     # create a personalized ticket 
-    ZendeskAPI::Ticket.create!($client, 
-      :subject => "#{@lead.full_name} from #{@lead.company_name}", 
-      :comment => { :value => "The contact #{@lead.full_name} from company #{@lead.company_name} can be reached at email #{@lead.email} and at phone number #{@lead.phone_number}. #{@lead.department_in_charge} has a project named #{@lead.project_name} which would require contribution from Rocket Elevators. 
-      #{@lead.project_description} 
-      Attached Message: #{@lead.message} 
-      #{message}"}, 
-      :submitter_id => @lead.id,
-      :type => "question",
-      :priority => "urgent")
+    # ZendeskAPI::Ticket.create!($client, 
+    #   :subject => "#{@lead.full_name} from #{@lead.company_name}", 
+    #   :comment => { :value => "The contact #{@lead.full_name} from company #{@lead.company_name} can be reached at email #{@lead.email} and at phone number #{@lead.phone_number}. #{@lead.department_in_charge} has a project named #{@lead.project_name} which would require contribution from Rocket Elevators. 
+    #   #{@lead.project_description} 
+    #   Attached Message: #{@lead.message} 
+    #   #{message}"}, 
+    #   :submitter_id => @lead.id,
+    #   :type => "question",
+    #   :priority => "urgent")
     #==================================== END Zendesk API session =========================================# 
       
       respond_to do |format|
