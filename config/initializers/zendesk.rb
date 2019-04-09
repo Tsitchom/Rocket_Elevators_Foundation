@@ -8,7 +8,7 @@ $client = ZendeskAPI::Client.new do |config|
   config.username = "raphael.vallee28@gmail.com" # ENV["email"]
 
   # Choose one of the following depending on your authentication choice
-  config.token = 'hxOhTpITJhzDWWGdP8HG67hMDkPpm1oAE211vTrd' # ENV['zendesk_api_key']
+  config.token =  # ENV['zendesk_api_key']
   # config.password = "Relevators1"
 
   # Optional:
