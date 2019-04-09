@@ -6,9 +6,9 @@ class Intervention < ApplicationRecord
   belongs_to :column, optional: true
   belongs_to :elevator, optional: true
 
-  enum intervention_result: [:Success, :Failed, :Incomplete]
+  # enum intervention_result: [:Success, :Failed, :Incomplete]
 
-  enum intervention_status: [:Pending, :InProgress, :Interrupted, :Resumed, :Completed]
+  # enum intervention_status: [:Pending, :InProgress, :Interrupted, :Resumed, :Completed]
 
  
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_04_182539) do
+ActiveRecord::Schema.define(version: 2019_04_09_211353) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "address_type"
@@ -125,17 +125,17 @@ ActiveRecord::Schema.define(version: 2019_04_04_182539) do
     t.integer "employee_id"
     t.datetime "intervention_start"
     t.datetime "intervention_finish"
-    t.integer "intervention_result", default: 2
+    t.text "intervention_result"
     t.text "report"
-    t.integer "intervention_status", default: 2
+    t.text "intervention_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author"], name: "index_interventions_on_author"
     t.index ["battery_id"], name: "index_interventions_on_battery_id"
     t.index ["building_id"], name: "index_interventions_on_building_id"
     t.index ["column_id"], name: "index_interventions_on_column_id"
     t.index ["customer_id"], name: "index_interventions_on_customer_id"
     t.index ["elevator_id"], name: "index_interventions_on_elevator_id"
-    t.index ["user_id"], name: "index_interventions_on_user_id"
   end
 
   create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -209,6 +209,5 @@ ActiveRecord::Schema.define(version: 2019_04_04_182539) do
   add_foreign_key "interventions", "columns", on_update: :cascade, on_delete: :cascade
   add_foreign_key "interventions", "customers", on_update: :cascade, on_delete: :cascade
   add_foreign_key "interventions", "elevators", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "interventions", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "leads", "customers", on_update: :cascade, on_delete: :cascade
 end

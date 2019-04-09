@@ -10,9 +10,9 @@ class CreateInterventions < ActiveRecord::Migration[5.2]
         t.integer :employee_id, optional: true
         t.datetime :intervention_start, optional: true
         t.datetime :intervention_finish, optional: true
-        t.integer :intervention_result, optional: false, :default => 2
+        t.text :intervention_result, optional: false
         t.text :report, optional: true
-        t.integer :intervention_status, optional: false, :default => 2
+        t.text :intervention_status, optional: false
 
       t.timestamps
     end

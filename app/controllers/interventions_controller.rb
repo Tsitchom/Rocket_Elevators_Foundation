@@ -142,9 +142,9 @@ class InterventionsController < ApplicationController
         @intervention.battery_id = params[:battery]
         @intervention.column_id = params[:column]
         @intervention.elevator_id = params[:elevator]
-        @intervention.intervention_result = params["Incomplete"]
+        @intervention.intervention_result = "Incomplete"
         @intervention.report = params[:report]
-        @intervention.intervention_status = params["Pending"]
+        @intervention.intervention_status = "Pending"
       
     #   elsif params[:quote][:department] == 'Commercial' 
     #     @quote.number_of_apartments = params[:quote][:comm_number_of_apartments]
