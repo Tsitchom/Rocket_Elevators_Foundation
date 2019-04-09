@@ -107,20 +107,7 @@ class InterventionsController < ApplicationController
     # POST /quotes
     # POST /quotes.json
     def create
-  
-
-      #==================================== Zendesk API session =============================================#  
-      # create a personalized ticket 
-      # ZendeskAPI::Ticket.create!($client, 
-      #   :subject => "#{@intervention.full_name} from #{@intervention.company_name}", 
-      #   :comment => { :value => "The contact #{@intervention.full_name} from company #{@intervention.company_name} can be reached at email #{@intervention.email} and at phone number #{@lead.phone_number}. #{@intervention.department_in_charge} has a project named #{@intervention.project_name} which would require contribution from Rocket Elevators. 
-      #   #{@intervention.project_description} 
-      #   Attached Message: #{@intervention.message} 
-      #   #{message}"}, 
-      #   :submitter_id => @intervention.id,
-      #   :type => "support",
-      #   :priority => "urgent")
-    #==================================== END Zendesk API session =========================================#  
+   
     
       #==================================== Zendesk API session =============================================#  
       # create a ticket when someone complete the quote form
@@ -146,26 +133,20 @@ class InterventionsController < ApplicationController
         @intervention.report = params[:report]
         @intervention.intervention_status = "Pending"
       
-    #   elsif params[:quote][:department] == 'Commercial' 
-    #     @quote.number_of_apartments = params[:quote][:comm_number_of_apartments]
-    #     @quote.number_of_parking = params[:quote][:comm_number_of_parking]
-    #     @quote.number_of_basements = params[:quote][:comm_number_of_basements]
-    #     @quote.number_of_stores = params[:quote][:comm_number_of_stores]
-  
-    #   elsif params[:quote][:department] == 'Corporate' 
-    #     @quote.number_of_floors = params[:quote][:corp_number_of_floors]
-    #     @quote.number_of_basements = params[:quote][:corp_number_of_basements]
-    #     @quote.max_occupancy_per_floor = params[:quote][:corp_max_occupancy_per_floor]
-    #     @quote.number_of_stores = params[:quote][:corp_number_of_stores]
-    #     @quote.number_of_parking = params[:quote][:corp_number_of_parking]
-  
-    #   elsif params[:quote][:department] == 'Hybrid' 
-    #     @quote.number_of_floors = params[:quote][:hyb_number_of_floors]
-    #     @quote.number_of_basements = params[:quote][:hyb_number_of_basements]
-    #     @quote.max_occupancy_per_floor = params[:quote][:hyb_max_occupancy_per_floor]
-    #     @quote.number_of_stores = params[:quote][:hyb_number_of_stores]
-    #     @quote.number_of_parking = params[:quote][:hyb_number_of_parking]
-    #   end
+          #==================================== Zendesk API session =============================================#  
+      # create a personalized ticket 
+      ZendeskAPI::Ticket.create!($client, 
+        :subject => "Employee # #{@intervention.author} from Rocket Elevators", 
+        :comment => { :value => "Employee # #{@intervention.author} working for customer # #{@intervention.customer_id} 
+        on building # #{@intervention.building_id}, battery # #{@intervention.battery_id}, column # #{@intervention.column_id} and elevator #
+        #{@intervention.elevator_id} has dispatched employee # #{@intervention.employee_id} to answer the present ticket. Here is a description
+        of the intervention to be made : #{@intervention.report} .
+        #{@intervention.report}  
+        "}, 
+        :submitter_id => @intervention.author,
+        :type => "Support",
+        :priority => "urgent")
+    #==================================== END Zendesk API session =========================================# 
   
       respond_to do |format|
         if @intervention.save!

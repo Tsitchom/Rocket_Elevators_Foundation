@@ -3,12 +3,12 @@ require 'zendesk_api'
 $client = ZendeskAPI::Client.new do |config|
   # Mandatory:
 
-  config.url = "https://rocketelevators1394.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
+  config.url = "https://rocketelevators93.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
 
-  config.username = ENV["email"]
+  config.username = "raphael.vallee28@gmail.com" # ENV["email"]
 
   # Choose one of the following depending on your authentication choice
-  config.token = ENV['zendesk_api_key']
+  config.token = 'hxOhTpITJhzDWWGdP8HG67hMDkPpm1oAE211vTrd' # ENV['zendesk_api_key']
   # config.password = "Relevators1"
 
   # Optional:
