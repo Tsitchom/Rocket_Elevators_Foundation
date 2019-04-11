@@ -96,6 +96,13 @@
 												CONTACT
 											</a>
 										</li>
+										    <%=link_to "", '/interventions', :method => :get %>
+                                        <li>
+                                            <!-- STATS -->
+                                            <a href="/interventions">
+                                                INTERVENTIONS
+                                            </a>
+                                        </li>
 											<%= link_to "", '/index', :method => :get %><a href="index.html#clients">
 										<li><!-- CLIENTS -->
 												CLIENTS
@@ -107,16 +114,11 @@
                                         EMPLOYEES
                                     </a>
                                 </li>
-							<%=link_to "", '/stats', :method => :get %>
-                                <li> <!-- STATS -->
-                                    <a href="stats">
-                                        STATS
-                                    </a>
-                                </li>
+						
 							<%=link_to "", '/mapsAPI', :method => :get %>
                                 <li> <!-- STATS -->
                                     <a href="/mapsAPI">
-                                        GEOLOCATIONS
+                                        GEO
                                     </a>
                                 </li>
 									</ul>

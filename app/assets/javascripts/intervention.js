@@ -99,7 +99,7 @@ $("#battery").change(function() {
       var columns = response["columns"];
       $("#column").empty();
 
-      $("#column").append("<option>Select Column</option>");
+      $("#column").append("<option>-None-</option>");
       for (var i = 0; i < columns.length; i++) {
         $("#column").append(
           '<option value="' +
@@ -134,7 +134,7 @@ $("#column").change(function() {
       var elevators = response["elevators"];
       $("#elevator").empty();
 
-      $("#elevator").append("<option>Select Elevator</option>");
+      $("#elevator").append("<option>-None-</option>");
       for (var i = 0; i < elevators.length; i++) {
         $("#elevator").append(
           '<option value="' +
@@ -202,99 +202,7 @@ var column = function() {
     $(".elevator-class").show();
   }
 };
-//  Main fonction ----------------------------------------------------------------
-// check if all inputs are not empty and call the right function for right sector
 
-// var calculMain = function() {
-//   $(".form-control-1, .form-control-2, .form-control-3, .form-control-4").each(
-//     function() {
-//       if ($(this).val() === "") {
-//         clearPrice();
-//       }
-//     }
-//   );
-
-//   if (document.getElementById("quote_department").value === "Residential") {
-//     if (
-//       document.getElementById("resi-app").value !== "" &&
-//       document.getElementById("resi-floor").value !== ""
-//     ) {
-//       var residentiel = calculResi();
-//       calculPrix(residentiel);
-
-//       $("input[name='quote[service_level]']").change(function() {
-//         if (
-//           document.getElementById("resi-app").value !== "" &&
-//           document.getElementById("resi-floor").value !== ""
-//         ) {
-//           calculPrix(residentiel);
-//         }
-//       });
-//     } else {
-//       clearPrice();
-//     }
-//   } else if (
-//     document.getElementById("quote_department").value === "Corporate"
-//   ) {
-//     if (
-//       document.getElementById("cor-floor").value !== "" &&
-//       document.getElementById("cor-quar").value !== "" &&
-//       document.getElementById("cor-occu").value !== ""
-//     ) {
-//       var corpo = calculCorpo();
-//       calculPrix(corpo);
-
-//       $("input[name='quote[service_level]']").change(function() {
-//         if (
-//           document.getElementById("cor-floor").value !== "" &&
-//           document.getElementById("cor-quar").value !== "" &&
-//           document.getElementById("cor-occu").value !== ""
-//         ) {
-//           calculPrix(corpo);
-//         }
-//       });
-//     } else {
-//       clearPrice();
-//     }
-//   } else if (document.getElementById("quote_department").value === "Hybrid") {
-//     if (
-//       document.getElementById("hyb-floor").value !== "" &&
-//       document.getElementById("hyb-quar").value !== "" &&
-//       document.getElementById("hyb-occu").value !== ""
-//     ) {
-//       var corpo = calculCorpo();
-//       calculPrix(corpo);
-
-//       $("input[name='quote[service_level]']").change(function() {
-//         if (
-//           document.getElementById("hyb-floor").value !== "" &&
-//           document.getElementById("hyb-quar").value !== "" &&
-//           document.getElementById("hyb-occu").value !== ""
-//         ) {
-//           calculPrix(corpo);
-//         }
-//       });
-//     } else {
-//       clearPrice();
-//     }
-//   } else if (
-//     document.getElementById("quote_department").value === "Commercial"
-//   ) {
-//     if (document.getElementById("com-asce").value !== "") {
-//       var comm = calculCommerce();
-//       calculPrix(comm);
-
-//       $("input[name='quote[service_level]']").change(function() {
-//         if (document.getElementById("com-asce").value !== "") {
-//           var comm = calculCommerce();
-//           calculPrix(comm);
-//         }
-//       });
-//     } else {
-//       clearPrice();
-//     }
-//   }
-// };
 // Function that reset all inputs and prices-----------------------------------------------------
 var clear = function() {
   $(".form-control-1, .form-control-2, .form-control-3, .form-control-4").each(
