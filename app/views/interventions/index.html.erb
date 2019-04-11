@@ -129,6 +129,13 @@
 												CONTACT
 											</a>
 										</li>
+                                            <%=link_to "", '/interventions', :method => :get %>
+                                        <li>
+                                            <!-- STATS -->
+                                            <a href="/interventions">
+                                                INTERVENTIONS
+                                            </a>
+                                        </li>
 											<%= link_to "", '/index', :method => :get %><a href="index.html#clients">
 										<li><!-- CLIENTS -->
 												CLIENTS
@@ -140,16 +147,11 @@
                                         EMPLOYEES
                                     </a>
                                 </li>
-							<%=link_to "", '/stats', :method => :get %>
-                                <li> <!-- STATS -->
-                                    <a href="stats">
-                                        STATS
-                                    </a>
-                                </li>
+						
                             <%=link_to "", '/mapsAPI', :method => :get %>
                                 <li> <!-- STATS -->
                                     <a href="/mapsAPI">
-                                        GEOLOCATIONS
+                                        GEO
                                     </a>
                                 </li>
 									</ul>
@@ -264,7 +266,8 @@
                                 <div class="col-md-4">
                                         <%= form.label :customer %>
                                         <%# <%= form.select :customer, options_from_collection_for_select(Customer.all, "id", "company_name"), include_blank: "-Select customer-" %> 
-                                        <%= form.select(:customer, Customer.all.collect {|p| [p.company_name, p.id]},  {prompt: "Select"}, {class: 'form-control'}) %>
+                                        <%= form.select(:customer, Customer.all.collect {|p| [p.company_name, p.id]}.sort_by(&:first), {prompt: "-Select Customer-"}, {class: 'form-control'}) %>
+                                        
                                     </div>
                                 </div>
                             

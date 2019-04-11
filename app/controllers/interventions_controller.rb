@@ -1,5 +1,6 @@
 class InterventionsController < ApplicationController
     before_action :set_intervention, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!
   
     # GET /quotes
     # GET /quotes.json
@@ -107,22 +108,14 @@ class InterventionsController < ApplicationController
     # POST /quotes
     # POST /quotes.json
     def create
-   
-    
-      #==================================== Zendesk API session =============================================#  
-      # create a ticket when someone complete the quote form
-    #   ZendeskAPI::Ticket.create!($client, 
-    #     :subject => "#{@quote.full_name} from #{@quote.company_name}", 
-    #     :comment => { :value => "The contact #{@quote.full_name} from company #{@quote.company_name} ask for a quote for #{@quote.number_of_elevators} elevator(s). #{@quote.full_name} can be reached at email #{@quote.email} and at phone number #{@quote.phone_number}. #{@quote.department} has a project which would require contribution from Rocket Elevators. 
-    #     No file attached"}, 
-    #     :submitter_id => @quote.id,
-    #     :type => "question",
-    #     :priority => "urgent")
-      #==================================== END Zendesk API session =========================================#  
       
       @intervention = Intervention.new(intervention_params)
 
         @intervention.author = current_user.id
+        author_firstname = current_user.first_name
+        author_lastname = current_user.last_name
+        @customer_company = Customer.find(params[:customer]).company_name
+
         @intervention.employee_id = params[:employee]
         @intervention.customer_id = params[:customer]
         @intervention.building_id = params[:building]
@@ -136,15 +129,15 @@ class InterventionsController < ApplicationController
           #==================================== Zendesk API session =============================================#  
       # create a personalized ticket 
       ZendeskAPI::Ticket.create!($client, 
-        :subject => "Employee # #{@intervention.author} from Rocket Elevators", 
-        :comment => { :value => "Employee # #{@intervention.author} working for customer # #{@intervention.customer_id} 
+        :subject => "Intervention ticket from employee # #{@intervention.author} - #{author_firstname} #{author_lastname} - Rocket Elevators", 
+        :comment => { :value => "Employee # #{@intervention.author} (#{author_firstname} #{author_lastname}) working for customer # #{@intervention.customer_id} (#{@customer_company})  
         on building # #{@intervention.building_id}, battery # #{@intervention.battery_id}, column # #{@intervention.column_id} and elevator #
         #{@intervention.elevator_id} has dispatched employee # #{@intervention.employee_id} to answer the present ticket. Here is a description
         of the intervention to be made : #{@intervention.report} .
         #{@intervention.report}  
         "}, 
         :submitter_id => @intervention.author,
-        :type => "Support",
+        :type => "problem",
         :priority => "urgent")
     #==================================== END Zendesk API session =========================================# 
   
@@ -162,8 +155,7 @@ class InterventionsController < ApplicationController
       end
     end
   
-    # PATCH/PUT /quotes/1
-    # PATCH/PUT /quotes/1.json
+    # PATCH/PUT /interventions/1.json
     def update
       respond_to do |format|
         if @intervention.update(intervention_params)
@@ -177,8 +169,7 @@ class InterventionsController < ApplicationController
       end
     end
   
-    # DELETE /quotes/1
-    # DELETE /quotes/1.json
+    # DELETE /interventions/1.json
     def destroy
       @intervention.destroy
       respond_to do |format|

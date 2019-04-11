@@ -204,10 +204,5 @@ ActiveRecord::Schema.define(version: 2019_04_09_211353) do
   add_foreign_key "customers", "addresses", on_update: :cascade, on_delete: :cascade
   add_foreign_key "customers", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "elevators", "columns", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "interventions", "batteries", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "interventions", "buildings", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "interventions", "columns", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "interventions", "customers", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "interventions", "elevators", on_update: :cascade, on_delete: :cascade
   add_foreign_key "leads", "customers", on_update: :cascade, on_delete: :cascade
 end
