@@ -1,6 +1,8 @@
 
 **CONSOLIDATION : Raphaël Vallée**
 
+Youtube : https://www.youtube.com/watch?v=hLZFcYrgSd8&feature=youtu.be
+
 **RAILS APP**
 Log in: remi.gagnon@codeboxx.biz
 Pass: 123456
