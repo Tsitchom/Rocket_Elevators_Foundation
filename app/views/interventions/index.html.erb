@@ -177,13 +177,6 @@
         <hr class="m-0" /><!-- 1px line separator -->
 
 
-        <!-- BLUE BUTTON CALLOUT 
-        <a href="#" class="btn btn-xlg btn-primary fs-30 fullwidth m-0 rad-0 p-40">
-                <button>Awards and Projects </button>
-                <button>Residential's services</button>
-                <button>Corporate's services</button>
-        </a>-->
-
 
         <!-- CONTACT -->
         <section id="contact">
@@ -253,16 +246,16 @@
 
                             
                         <%# Employee drop down menu %>
-                        <div class="row">
+                        <div class="row" style="margin-left: 1px">
                                 <div class="col-md-4">
                                         <%= form.label :employee %>
-                                        <%= form.select :employee, options_from_collection_for_select(User.all, "id", "first_name", "last_name"), include_blank: "-None-" %>
+                                        <%= form.select :employee, options_from_collection_for_select(User.all, "id", "first_name",  "last_name"), include_blank: "-None-" %>
                                     </div>
                                 </div>
 
 
                             <%# Customers drop down menu  %>  
-                            <div class="row">
+                            <div class="row" style="margin-left: 1px">
                                 <div class="col-md-4">
                                         <%= form.label :customer %>
                                         <%# <%= form.select :customer, options_from_collection_for_select(Customer.all, "id", "company_name"), include_blank: "-Select customer-" %> 
@@ -326,24 +319,15 @@
                     <!-- INFO -->
                     <div class="col-md-4 col-sm-4">
 
-                            <!-- PAYMENT METHOD -->
-                            <!-- /PAYMENT METHOD -->
-
-
-                            <!-- CREDIT CARD PAYMENT -->
-
-                            <!-- /CREDIT CARD PAYMENT -->
-
-
                             <!-- TOTAL / PLACE ORDER -->
                             <div class="toggle-transparent toggle-bordered-full clearfix">
                                 <div class="toggle active">
-                                    <div class="toggle-content-1" style="display: block;">
+                                    
                             
                                         <hr>
                                     <div class="actions"> 
-                                    <%= form.submit class: 'btn btn-primary btn-lg btn-block fs-15', :onclick => "alert('Information about your intervention has been sent to the Rocket Elevators servers !')"%>
-                                    </div>
+                                    <%= form.submit class: 'btn btn-primary btn-lg btn-block fs-15', value: 'Submit', :onclick => "alert('Information about your intervention has been sent to the Rocket Elevators servers !')"%>
+                                    
                                     </div>
                                 </div>
                             </div>
