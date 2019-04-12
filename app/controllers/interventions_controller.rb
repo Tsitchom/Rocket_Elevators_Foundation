@@ -2,27 +2,10 @@ class InterventionsController < ApplicationController
     before_action :set_intervention, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
   
-    # GET /quotes
     # GET /quotes.json
     def index
       @interventions = Intervention.all
     end
-
-    # Method (attempt) to filter buildings by customer
-    # def get_building_by_customer
-    #     @buildings = Building.where("customer_id = ?", params[:customer_id])
-    #     respond_to do |format|
-    #       format.json { render :json => @buildings }
-    #     end
-    # end
-
-    # def building_search
-    #     if params[:customer_id].present? && params[:customer_id].strip != ""
-    #       @buildings = Building.where("customer_id = ?", params[:customer_id])
-    #     else
-    #       @buildings = Building.all
-    #     end
-    #   end
   
     # Method to get buildings related to a selected customer
     def get_building
@@ -87,35 +70,35 @@ class InterventionsController < ApplicationController
             end
         end
     end
-    # GET /quotes/1
-    # GET /quotes/1.json
+    # GET /interventions/1.json
     def show
     end
   
-    # GET /quotes/new
+    # GET /interventions/new
     def new
       @intervention = Intervention.new
     end
   
-    # GET /quotes/1/edit
+    # GET /interventions/1/edit
     def edit
     end
+    
 
-  #   def intervention
-	# 	@intervention = Intervention.new
-	# end
-  
-    # POST /quotes
-    # POST /quotes.json
+    # The create method contains the variable declarations used in the Zendesk API, and the controller actions after
+    # a user has submitted an intervention
     def create
       
       @intervention = Intervention.new(intervention_params)
 
+        # Variables needed and used in the Zendesk API message
         @intervention.author = current_user.id
         author_firstname = current_user.first_name
         author_lastname = current_user.last_name
         @customer_company = Customer.find(params[:customer]).company_name
+        @employee_fname = User.find(params[:employee]).first_name
+        @employee_lname = User.find(params[:employee]).last_name
 
+        # Content from the intervention form
         @intervention.employee_id = params[:employee]
         @intervention.customer_id = params[:customer]
         @intervention.building_id = params[:building]
@@ -126,14 +109,12 @@ class InterventionsController < ApplicationController
         @intervention.report = params[:report]
         @intervention.intervention_status = "Pending"
       
-          #==================================== Zendesk API session =============================================#  
-      # create a personalized ticket 
+    #==================================== Zendesk API session =============================================#  
+      # Create a personalized ticket 
       ZendeskAPI::Ticket.create!($client, 
-        :subject => "Intervention ticket from employee # #{@intervention.author} - #{author_firstname} #{author_lastname} - Rocket Elevators", 
-        :comment => { :value => "Employee # #{@intervention.author} (#{author_firstname} #{author_lastname}) working for customer # #{@intervention.customer_id} (#{@customer_company})  
-        on building # #{@intervention.building_id}, battery # #{@intervention.battery_id}, column # #{@intervention.column_id} and elevator #
-        #{@intervention.elevator_id} has dispatched employee # #{@intervention.employee_id} to answer the present ticket. Here is a description
-        of the intervention to be made : #{@intervention.report} .
+        :subject => "Intervention ticket from employee ##{@intervention.author} - #{author_firstname} #{author_lastname} - Rocket Elevators", 
+        :comment => { :value => "Employee ##{@intervention.author} (#{author_firstname} #{author_lastname}) working for customer ##{@intervention.customer_id} (#{@customer_company}) on building # #{@intervention.building_id}, battery ##{@intervention.battery_id}, column ##{@intervention.column_id} and elevator ##{@intervention.elevator_id} has dispatched employee # #{@intervention.employee_id} (#{@employee_fname} #{@employee_lname}) to answer the present ticket. 
+        Here is a description of the intervention to be made : 
         #{@intervention.report}  
         "}, 
         :submitter_id => @intervention.author,

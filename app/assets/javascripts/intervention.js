@@ -1,13 +1,11 @@
-/**	CONTACT FORM
- *************************************************** **/
+/*******************	INTERVENTION FORM ***********************/
 var _hash = window.location.hash;
 
 //-------------------------------------------------------------------------
 $(".building-class, .battery-class, .column-class, .elevator-class").hide();
 
-///////////////////////////////////////////////////////////////
 // Show and hide buildings for customer X
-$("#building").prop("disabled", true); // second dropdown is disable while first dropdown is empty
+$("#building").prop("disabled", true); // second dropdown is disabled while first dropdown is empty
 
 $("#customer").change(function() {
   var customer = $(this).val();
@@ -28,8 +26,15 @@ $("#customer").change(function() {
       console.log(response);
       var buildings = response["buildings"];
       $("#building").empty();
+      $("#battery").empty();
+      $("#column").empty();
+      $("#elevator").empty();
 
       $("#building").append("<option>Select Building</option>");
+      $("#battery").append("<option>Select Battery</option>");
+      $("#column").append("<option>-None-</option>");
+      $("#elevator").append("<option>-None-</option>");
+
       for (var i = 0; i < buildings.length; i++) {
         $("#building").append(
           '<option value="' +
@@ -44,7 +49,6 @@ $("#customer").change(function() {
 });
 
 // Show and hide batteries for building X
-// $("#building").prop("disabled", true); // second dropdown is disable while first dropdown is empty
 $("#building").change(function() {
   var building = $(this).val();
   if (building == "") {
@@ -79,7 +83,6 @@ $("#building").change(function() {
 });
 
 // Show and hide columns for battery X
-// $("#building").prop("disabled", true); // second dropdown is disable while first dropdown is empty
 $("#battery").change(function() {
   var battery = $(this).val();
   if (battery == "") {
@@ -114,7 +117,6 @@ $("#battery").change(function() {
 });
 
 // Show and hide elevators for column X
-// $("#building").prop("disabled", true); // second dropdown is disable while first dropdown is empty
 $("#column").change(function() {
   var column = $(this).val();
   if (column == "") {
