@@ -95,8 +95,16 @@ class InterventionsController < ApplicationController
         author_firstname = current_user.first_name
         author_lastname = current_user.last_name
         @customer_company = Customer.find(params[:customer]).company_name
+
+        # Rule to avoid an error message if no employee is selected
+        if @intervention.employee_id != nil
         @employee_fname = User.find(params[:employee]).first_name
         @employee_lname = User.find(params[:employee]).last_name
+
+        added_details = "(#{@employee_fname} #{@employee_lname} was asked to answer this ticket)"
+        else
+          added_details = ""
+        end
 
         # Content from the intervention form
         @intervention.employee_id = params[:employee]
@@ -113,9 +121,11 @@ class InterventionsController < ApplicationController
       # Create a personalized ticket 
       ZendeskAPI::Ticket.create!($client, 
         :subject => "Intervention ticket from employee ##{@intervention.author} - #{author_firstname} #{author_lastname} - Rocket Elevators", 
-        :comment => { :value => "Employee ##{@intervention.author} (#{author_firstname} #{author_lastname}) working for customer ##{@intervention.customer_id} (#{@customer_company}) on building # #{@intervention.building_id}, battery ##{@intervention.battery_id}, column ##{@intervention.column_id} and elevator ##{@intervention.elevator_id} has dispatched employee # #{@intervention.employee_id} (#{@employee_fname} #{@employee_lname}) to answer the present ticket. 
+        :comment => { :value => "Employee ##{@intervention.author} (#{author_firstname} #{author_lastname}) working for customer ##{@intervention.customer_id} (#{@customer_company}) on building # #{@intervention.building_id}, battery ##{@intervention.battery_id}, column ##{@intervention.column_id} and elevator ##{@intervention.elevator_id} has dispatched an employee (##{@intervention.employee_id}) to answer the present ticket.
+        *** An element with no value after a '#' means no specific element has been selected on the form ***
         Here is a description of the intervention to be made : 
         #{@intervention.report}  
+        #{added_details}
         "}, 
         :submitter_id => @intervention.author,
         :type => "problem",
