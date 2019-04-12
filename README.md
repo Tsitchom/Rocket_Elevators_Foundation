@@ -1,6 +1,6 @@
-**====================================================**
+
 **CONSOLIDATION : Raphaël Vallée**
-====================================================
+
 **RAILS APP**
 Log in: remi.gagnon@codeboxx.biz
 Pass: 123456
@@ -13,7 +13,7 @@ Week 9 required tasks :
 -a "Submit" button sends the data to the database
 
 
-====================================================
+===================
 **MySQL**
 Information about the database : _See privately sent "Consolidation-Raph" document_
 
@@ -24,7 +24,7 @@ Week 9 required tasks :
 -the intervention_start and intervention_finish columns ARE null as required
 -the intervention_result and intervention_status are respectively "Incomplete" and "Pending" as required
 
-====================================================
+====================
 
 **ZEN DESK**
 Team name: Rocket Elevators
@@ -38,5 +38,5 @@ Week 9 required tasks :
 -when an intervention is sent from the intervention form, a ticket is sent to the Zendesk account and to the raphael.vallee28@gmail.com email account
 -the ticket contains the 8 required data from the intervention as well as many more
 
-====================================================
+===================
 
