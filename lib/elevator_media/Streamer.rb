@@ -57,7 +57,7 @@ class Streamer
 
     # method that gets the status of a Spotify connection with the selected client ID and secret
     def getSpotifyStatus
-        @status = RSpotify::authenticate("3d0069753130488db57d4514f5ed7c7d", "30c6d69a70ef42db94bcb1354db379f7")
+        @status = RSpotify::authenticate(ENV["spot_client_id"], ENV["spot_client_secret"])
     end
 
     # method that gets a specific Spotify user with the username
