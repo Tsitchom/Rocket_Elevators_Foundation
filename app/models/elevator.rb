@@ -2,7 +2,7 @@ require 'twilio-ruby'
 
 class Elevator < ApplicationRecord
   belongs_to :column
-  enum elevator_status: [:Active, :Inactive, :Intervention_Needed]
+  # enum elevator_status: [:Active, :Inactive, :Intervention_Needed]
 
   # after_commit do
   #   if elevator_status == 2
