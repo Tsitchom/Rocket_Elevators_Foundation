@@ -5,7 +5,7 @@ class CreateElevators < ActiveRecord::Migration[5.2]
       t.string :serial_number, null: false
       t.string :model_type, null: false
       t.string :building_type, null: false
-      t.integer :elevator_status
+      t.string :elevator_status
       t.date :date_of_install
       t.date :date_of_inspect
       t.string :inspect_certificate

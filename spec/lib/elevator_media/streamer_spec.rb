@@ -1,0 +1,92 @@
+require 'rails_helper'
+require 'spec_helper'
+require 'elevator_media/Streamer'
+require 'rest-client'
+require 'rspotify'
+  
+
+describe 'Streamer' do
+    
+    let!(:streamer){Streamer.new}
+
+    it "a basic passing test to set-up environment" do
+        expect(true).to be true
+    end
+
+    it "should get a response from getContent" do
+        expect(streamer).to respond_to(:getContent)        
+    end
+
+    # Testing the getContent method and what it returns
+    describe "getContent behavior" do
+
+        # Testing if the getContent method returns actual html content
+        it "should return a valid html" do    
+            result = streamer.getContent()
+            expect(result).to be_a(String)
+            expect(result).to include('<')
+        end
+
+        # Testing if the getHtmlFromCloud method returns html content
+        it "should get interesting html from internet" do
+           expect(streamer).to receive(:getHtmlFromCloud)
+           streamer.getContent()
+        end
+
+        # Testing if the default type of the getContent method returns 'chuck_norris' type content
+        it "default content should be of 'chuck_norris' type" do
+            expect(streamer).to receive(:getChuckNorrisQuote).and_return({value: {joke: 'Chuck Norris joke received'}}.to_json) 
+            streamer.getContent('chuck_norris')
+        end
+
+        # Testing if the getContent method returns 'weather' type data if asked
+        it "should be able to fetch weather data" do
+            expect(streamer).to receive(:getWeather) {'<div>weather</div>'}
+            streamer.getContent('weather')
+        end
+    end
+
+    # Testing if the Chuck Norris database returns a succesful quote
+    it 'got response from Chuck Norris database' do
+        json_response = JSON.parse(streamer.getChuckNorrisQuote)
+        p json_response
+        expect(json_response["type"]).to eq("success")
+    end
+
+    # Testing if the open-weather API gives back a response
+    it 'got open-weather response' do
+        current_weather = streamer.getWeather['weather'][0]['main']
+        expect(current_weather).to_not eq(nil)
+    end
+
+    # Testing if asking for a weather forecast gives back a response
+    it 'got open-weather forecast' do
+        current_forecast = streamer.getForecast['weather'][0]['main']
+        expect(current_forecast).to_not eq(nil)
+    end
+
+    # Testing if Spotify gives back any response
+    it 'got spotify response' do
+        expect(RSpotify).to receive(:raw_response) {true}
+        streamer_object = Streamer.new
+        valid_response = streamer_object.getSpotifyResponse
+        expect(valid_response).to eq(true)
+    end    
+
+    # Testing if the Spotify user is logged-in (should be true, because a client ID and secret was suppliedx)
+    it 'got spotify login status' do
+        expect(RSpotify).to receive(:authenticate) {true}
+        streamer_object = Streamer.new
+        login_status = streamer_object.getSpotifyStatus
+        expect(login_status).to eq(true)
+    end
+
+    # Testing if a specific Spotify user can be found
+    it 'got spotify valid user' do
+        expect(RSpotify::User).to receive(:find) {"awoggddbv0ucdh3b1w86p4wmu"}
+        streamer_object = Streamer.new
+        valid_user = streamer_object.getSpotifyUser
+        expect(valid_user).to eq("awoggddbv0ucdh3b1w86p4wmu")
+    end
+
+end
