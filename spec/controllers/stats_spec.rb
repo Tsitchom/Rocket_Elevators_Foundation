@@ -5,7 +5,8 @@ require 'spec_helper'
 
 RSpec.describe StatsController do 
     
-    it"should give back redirect response" do
+    # Testing if the "authenticate" method returns a succesful response
+    it"should give back a 200 succesful HTTP response" do
         expect(response.status).to eq (200)
     end
 end
