@@ -9,25 +9,27 @@ describe ElevatorMedia::Streamer do
     
     let!(:streamer){ElevatorMedia::Streamer.new}
 
+    # Testing if a first basic test gives back a successful response
     it "a first test to initialize environment" do
         expect(true).to be true
     end
 
+    # Testing if the required getContent method returns "interesting content"
     it "should receive a response from getContent" do
         expect(streamer).to respond_to(:getContent)        
     end
 
-    # Testing the getContent method and what it returns
+    # Testing the required getContent method and what it returns
     describe "getContent behavior" do
 
-        # Testing if the getContent method returns actual html content
+        # Testing if the getContent method returns actual html content by expecting a String and a </div> tag
         it "should return a valid html" do    
             result = streamer.getContent()
             expect(result).to be_a(String)
             expect(result).to include('</div>')
         end
 
-        # Testing if the getHtmlFromCloud method returns "interesting" html content
+        # Testing if the getHtmlFromCloud method returns "interesting" html content described in the tests below
         it "should get interesting html content from internet" do
            expect(streamer).to receive(:getHtmlFromCloud)
            streamer.getContent()
@@ -46,28 +48,28 @@ describe ElevatorMedia::Streamer do
         end
     end
 
-    # Testing if the Chuck Norris database returns a succesful quote
+    # Testing if the Chuck Norris database returns a succesful quote, printing a quote in the console
     it 'got response from Chuck Norris database' do
         json_response = JSON.parse(streamer.getChuckNorrisQuote)
         p json_response
         expect(json_response["type"]).to eq("success")
     end
 
-    # Testing if the open-weather API gives back a response
+    # Testing if the open-weather API gives back a response (expecting a String)
     it 'got open-weather response' do
         current_weather = streamer.getWeather['weather'][0]['main']
         expect(current_weather).to_not eq(nil)
         expect(current_weather).to be_a(String)
     end
 
-    # Testing if asking for a weather forecast gives back a response
+    # Testing if asking for a weather forecast gives back a response (expecting a String)
     it 'got open-weather forecast' do
         current_forecast = streamer.getForecast['weather'][0]['main']
         expect(current_forecast).to_not eq(nil)
         expect(current_forecast).to be_a(String)
     end
 
-    # Testing if Spotify gives back any response
+    # Testing if Spotify gives back any successful response
     it 'got spotify response' do
         expect(RSpotify).to receive(:raw_response) {true}
         streamer_object = ElevatorMedia::Streamer.new
@@ -75,7 +77,7 @@ describe ElevatorMedia::Streamer do
         expect(valid_response).to eq(true)
     end    
 
-    # Testing if the Spotify user is logged-in (should be true, because a client ID and secret was suppliedx)
+    # Testing if the Spotify user is logged-in (should be true, because a client ID and secret was supplied)
     it 'got spotify login status' do
         expect(RSpotify).to receive(:authenticate) {true}
         streamer_object = ElevatorMedia::Streamer.new
@@ -83,7 +85,7 @@ describe ElevatorMedia::Streamer do
         expect(login_status).to eq(true)
     end
 
-    # Testing if a specific Spotify user can be found
+    # Testing if a specific Spotify user can be found (using my personel spotify username)
     it 'got spotify valid user' do
         expect(RSpotify::User).to receive(:find) {"awoggddbv0ucdh3b1w86p4wmu"}
         streamer_object = ElevatorMedia::Streamer.new

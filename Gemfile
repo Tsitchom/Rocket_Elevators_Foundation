@@ -88,6 +88,9 @@ gem 'rest-client', '~> 1.8'
 #
 gem 'rspotify'
 #
+gem 'rufo'
+#
+#
 gem 'listen', '>= 3.0.5', '< 3.2'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
