@@ -90,6 +90,8 @@ gem 'rspotify'
 #
 gem 'rufo'
 #
+gem 'rails-controller-testing'
+#
 #
 gem 'listen', '>= 3.0.5', '< 3.2'
 # Use CoffeeScript for .coffee assets and views
