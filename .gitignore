@@ -32,3 +32,6 @@ config/application.yml
 .vscode
 
 
+#####
+
+echo coverage >> .gitignore
