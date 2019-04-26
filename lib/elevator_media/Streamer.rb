@@ -13,7 +13,7 @@ module ElevatorMedia
           @open_weather = ENV['open_weather_api']
       end
 
-      # required method from week 10 Codeboxx file
+      # required method from week 10 Codeboxx file that renders interesting HTML content to the elevator's screens
       def getContent(type='chuck_norris')
           getHtmlFromCloud(type)
       end
@@ -38,7 +38,6 @@ module ElevatorMedia
 
       # method that gets the weather for a specific city, Quebec in this case
       def getWeather
-          # get current weather by city name
           options = { units: "metric", APPID: @open_weather }
           OpenWeather::Current.city("Quebec City, CA", options)
       end
