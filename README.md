@@ -21,6 +21,8 @@ here was Chuck Norris quotes, but "Weather" and "Spotify" content can also be re
 
 -A lot more tests than the required number were built
 
+-Simplecov was integrated to the TDD to check the app's testing level. It's available in the command line after a text and in a generated file in the /coverage/index.html file
+
 **The files where the TDD was accomplished :** 
 --/lib/elevator_media/Streamer.rb 
 -- /spec/lib/elevator_media/streamer_spec.rb 
