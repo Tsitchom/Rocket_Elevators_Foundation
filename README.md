@@ -1,7 +1,7 @@
 **Week 10 : TDD**
 
 **Requirements :** 
--You will find a content streaming module in the /lib section of the app folder called "elevator_media". The whole code of the module
+-You will find a content streaming module in the "reusable library" ( /lib section of the app folder called "elevator_media" ). The whole code of the module
 is included in the /lib/elevator_media/Streamer.rb file
 
 -The ElevatorMedia module was developped with the Red-Green-Refactoring method. Commentary details all the tests and the methodology
@@ -16,7 +16,26 @@ here was Chuck Norris quotes, but "Weather" and "Spotify" content can also be re
 
 -The methods are 10 lines or shorter
 
+-A lot more tests than the required number were built
 
+**The files where the TDD was accomplished :** 
+--/lib/elevator_media/Streamer.rb 
+-- /spec/lib/elevator_media/streamer_spec.rb 
+BONUS TESTS:
+-- /spec/controllers/pages_spec.rb
+-- /spec/controllers/dropbox_spec.rb
+-- /spec/controllers/interventions_spec.rb
+-- /spec/controllers/stats_spec.rb
+-- /spec/controllers/building_details_spec.rb
+
+RED-GREEN-REFACTOR METHOD DESCRIPTION :
+All the 24 tests (although some patterns are repetitive) were realized with the Ref-Green-Refactor method. Here are a few examples :
+
+-the "getContent behavior" described first test  was meant to check if getContent returned valid html content. I did not include an html tag in the "include: (like the </div> one) to make the test fail, then added the </div> tag to make sure my content was HTML.
+
+-the 'got spotify login status' test was firstly checking a false authentication, which returned red. I then refactored it to check if the authentication was true, and the test passed. This confirmed the Spotify user was actually logged in. 
+
+-the 'got-open-weather forecast' test expected a specific forecast target first (like "Clouds") but the test failed when the forecast changed. I refactored so every forecast passes (because it now requires a String).
 
 
 ---------------------------------------------------------------------
