@@ -1,6 +1,8 @@
 **Week 10 : TDD**
 
 **Requirements :** 
+Premise : a screen in the Rocket Elevator elevators was added to display interesting HTML content to the users. It can either display weather reports, connect and login to the user's Spotify account to play music or display a funny Chuck Norris quote.
+
 -You will find a content streaming module in the "reusable library" ( /lib section of the app folder called "elevator_media" ). The whole code of the module
 is included in the /lib/elevator_media/Streamer.rb file
 
