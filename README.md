@@ -1,4 +1,25 @@
+#Week 10 : TDD
 
+**Requirements :** 
+-You will find a content streaming module in the /lib section of the app folder called "elevator_media". The whole code of the module
+is included in the /lib/elevator_media/Streamer.rb file
+
+-The ElevatorMedia module was developped with the Red-Green-Refactoring method. Commentary details all the tests and the methodology
+behind them
+
+-The TDD was accomplished with Rspec (http://rspec.info)
+
+-The module and class are respectively the required ElevatorMedia module and Streamer class (/lib/elevator_media/Streamer.rb)
+
+-The Streamer class contains a standard method called "getContent" that returns "interesting" HTML content. The preffered content 
+here was Chuck Norris quotes, but "Weather" and "Spotify" content can also be returned. All this content is ONLY available in the getContent method going through a single entry point (the Streamer class as required)
+
+-The methods are 10 lines or shorter
+
+
+
+
+---------------------------------------------------------------------
 **CONSOLIDATION : Raphaël Vallée**
 
 Youtube : https://www.youtube.com/watch?v=hLZFcYrgSd8&feature=youtu.be
