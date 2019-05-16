@@ -96,6 +96,7 @@ gem 'simplecov', require: false, group: :test
 #
 gem 'newrelic_rpm'
 #
+gem 'google-api-client'
 #
 gem 'listen', '>= 3.0.5', '< 3.2'
 # Use CoffeeScript for .coffee assets and views
