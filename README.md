@@ -1,4 +1,4 @@
-**Week 14 : DevOps**
+**Week 14 : DevOps & ''Récapitulatif inter-disciplinaire''**
 
 Web app : https://raphaelvallee.com
 
@@ -11,6 +11,7 @@ Implemented monitoring tools :
 
 All the related information to log into these monitoring dashboards will be located in the privately sent "DevOps Login Raph.txt" file and demonstrated on the Youtube video above.
 
+Récapitulatif interdisciplinaire : Récapitualtif Interdisciplinaire Raph.docx
 
 **Week 10 : TDD**
 youtube link : https://www.youtube.com/watch?v=QO5ysEdo8js&feature=youtu.be
