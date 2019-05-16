@@ -1,3 +1,15 @@
+**Week 14 : DevOps**
+
+Youtube link : 
+
+Implemented monitoring tools : 
+-New Relic
+-Google Analytics
+-Sumo Logic
+
+All the related information to log into these monitoring dashboards will be located in the privately sent "DevOps Login Raph.txt" file and demonstrated on the Youtube video above.
+
+
 **Week 10 : TDD**
 youtube link : https://www.youtube.com/watch?v=QO5ysEdo8js&feature=youtu.be
 
